@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HDSP - Laboratorio de Procesamiento de Imágenes on HDSP Group</title>
-    <link>https://hdspgroup.github.io/courses/image-processing/</link>
+    <link>https://hdspgroup.github.io/labs/courses/image-processing/</link>
     <description>Recent content in HDSP - Laboratorio de Procesamiento de Imágenes on HDSP Group</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://hdspgroup.github.io/courses/image-processing/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://hdspgroup.github.io/labs/courses/image-processing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fundamentos de Procesamiento Digital de Imágenes</title>
-      <link>https://hdspgroup.github.io/courses/image-processing/fundamentos/</link>
+      <link>https://hdspgroup.github.io/labs/courses/image-processing/fundamentos/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0100</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/image-processing/fundamentos/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/image-processing/fundamentos/</guid>
       <description>&lt;p&gt;El informe del laboratorio debe responder las preguntas que se presentan en la guı́a, además anexar los archivos que
 generen, por ejemplo .mat, .m, .fig, etc. Enviar una carpeta comprimida con los archivos al correo electrónico de
 su tutor con el asunto Laboratorio 1 imágenes y el nombre de la carpeta comprimida Lab1 NombreApellido,
@@ -32,10 +32,10 @@ fraude anula el laboratorio.&lt;/p&gt;
     
     <item>
       <title>Cuantificacion y Muestreo</title>
-      <link>https://hdspgroup.github.io/courses/image-processing/cuantificacion/</link>
+      <link>https://hdspgroup.github.io/labs/courses/image-processing/cuantificacion/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0100</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/image-processing/cuantificacion/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/image-processing/cuantificacion/</guid>
       <description>&lt;p&gt;El informe del laboratorio debe responder las preguntas que se presentan en la guı́a, además anexar los
 archivos que generen, por ejemplo .mat, .m, .fig, etc. Enviar una carpeta comprimida con los archivos al
 correo electrónico de su tutor con el asunto Laboratorio 2 imágenes y el nombre de la carpeta comprimida
@@ -49,10 +49,10 @@ cualquier intento de copia o fraude anula el laboratorio.&lt;/p&gt;
     
     <item>
       <title>Transformaciones Geométricas, Corrección Gamma e Histogramas.</title>
-      <link>https://hdspgroup.github.io/courses/image-processing/transformaciones/</link>
+      <link>https://hdspgroup.github.io/labs/courses/image-processing/transformaciones/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0100</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/image-processing/transformaciones/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/image-processing/transformaciones/</guid>
       <description>&lt;p&gt;El informe del laboratorio debe responder las preguntas que se presentan en la guı́a, además anexar los
 archivos que generen, por ejemplo .mat, .m, .fig, etc. Enviar una carpeta comprimida con los archivos
 al correo electrónico de su tutor con el asunto Laboratorio 3 imágenes y el nombre de la carpeta

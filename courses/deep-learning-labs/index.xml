@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HDSP - Laboratorio de Deep Learning on HDSP Group</title>
-    <link>https://hdspgroup.github.io/courses/deep-learning-labs/</link>
+    <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/</link>
     <description>Recent content in HDSP - Laboratorio de Deep Learning on HDSP Group</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://hdspgroup.github.io/courses/deep-learning-labs/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://hdspgroup.github.io/labs/courses/deep-learning-labs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Google Colaboratory</title>
-      <link>https://hdspgroup.github.io/courses/deep-learning-labs/colab/</link>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/colab/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0100</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/deep-learning-labs/colab/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/colab/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/carlosh93/carlosh93.github.io/blob/master/files/introduccion_colab.ipynb&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Antes de empezar, da click en el boton &amp;ldquo;Open in Colab&amp;rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:&lt;/p&gt;
@@ -319,10 +319,10 @@ herramientas.&lt;/li&gt;
     
     <item>
       <title>Machine Learning I</title>
-      <link>https://hdspgroup.github.io/courses/deep-learning-labs/concepts/</link>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0100</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/deep-learning-labs/concepts/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts/</guid>
       <description>&lt;p&gt;Antes de inicar con conceptos básicos sobre redes neuronales tensorflow keras etc,  estudiaremos las ideas fundamentales sobre el mundo de la inteligencia artificial.&lt;/p&gt;
 &lt;p&gt;La inteligencia artificial se puede definir como la ciencia de entrenar máquinas para ejecutar tareas humanas y machine learning es una parte de la inteligencia artifical encargada de resolver esos problemas.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Image(&#39;ML.PNG&#39;, width = 800)
@@ -483,10 +483,10 @@ plt.scatter(X,modelo(X), label = &amp;quot;valores predichos&amp;quot;)
     
     <item>
       <title>Machine Learning II</title>
-      <link>https://hdspgroup.github.io/courses/deep-learning-labs/concepts2/</link>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts2/</link>
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0100</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/deep-learning-labs/concepts2/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts2/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/hdspgroup/hdspgroup.github.io/blob/master/data/machine_learningII.ipynb&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Antes de empezar, da click en el boton &amp;ldquo;Open in Colab&amp;rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:&lt;/p&gt;
@@ -824,10 +824,10 @@ b) no supervisionado&lt;/p&gt;
     
     <item>
       <title>Inverse Problems</title>
-      <link>https://hdspgroup.github.io/courses/deep-learning-labs/inverse/</link>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/inverse/</link>
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0100</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/deep-learning-labs/inverse/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/inverse/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/hdspgroup/hdspgroup.github.io/blob/master/data/Deep_Learning_for_inverse_problems.ipynb&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Antes de empezar, da click en el boton &amp;ldquo;Open in Colab&amp;rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:&lt;/p&gt;

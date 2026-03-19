@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HDSP Laboratories on HDSP Group</title>
-    <link>https://hdspgroup.github.io/courses/</link>
+    <link>https://hdspgroup.github.io/labs/courses/</link>
     <description>Recent content in HDSP Laboratories on HDSP Group</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://hdspgroup.github.io/courses/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://hdspgroup.github.io/labs/courses/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>HDSP - Laboratorio de Deep Learning</title>
-      <link>https://hdspgroup.github.io/courses/deep-learning-labs/</link>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/</link>
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/deep-learning-labs/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/</guid>
       <description>&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
 &lt;p&gt;El objetivo de este laboratorio es brindar al estudiante HDSP las herramientas base
 para el desarrollo de algoritmos de aprendizaje profundo (Deep Learning en inglés) que
@@ -54,10 +54,10 @@ preparar un documento donde se resuma lo aprendido y se analicen los resultados 
     
     <item>
       <title>HDSP - Laboratorio de Óptica Computacional</title>
-      <link>https://hdspgroup.github.io/courses/optics-labs/</link>
+      <link>https://hdspgroup.github.io/labs/courses/optics-labs/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/optics-labs/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/optics-labs/</guid>
       <description>&lt;h2 id=&#34;objetivos&#34;&gt;Objetivos&lt;/h2&gt;
 &lt;p&gt;En esta serie de laboratorios de óptica computacional tiene como objetivo:&lt;/p&gt;
 &lt;ul&gt;
@@ -129,10 +129,10 @@ seguir las indicaciones descritas en los talleres:&lt;/p&gt;
     
     <item>
       <title>HDSP - Laboratorio de Procesamiento de Imágenes</title>
-      <link>https://hdspgroup.github.io/courses/image-processing/</link>
+      <link>https://hdspgroup.github.io/labs/courses/image-processing/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/image-processing/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/image-processing/</guid>
       <description>&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
 &lt;p&gt;En esta serie de laboratorios de procesamiento de imágenes, se busca brindar al estudiante HDSP
 los fundamentos base para el procesamiento digital de imágenes. Este laboratorio se encuentra
@@ -153,10 +153,10 @@ y una vez aprobado, el tutor cargará el informe y la rúbrica en la carpeta de 
     
     <item>
       <title>HDSP - Laboratorio de Optimización Matemática</title>
-      <link>https://hdspgroup.github.io/courses/optimization-labs/</link>
+      <link>https://hdspgroup.github.io/labs/courses/optimization-labs/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hdspgroup.github.io/courses/optimization-labs/</guid>
+      <guid>https://hdspgroup.github.io/labs/courses/optimization-labs/</guid>
       <description>&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
 &lt;p&gt;Actualmente, el laboratorio de optimización matemática consta de dos talleres: &lt;em&gt;Proximal Gradient&lt;/em&gt; y &lt;em&gt;Algoritmo de
 Optimización ADMM&lt;/em&gt;. En general, estos laboratorios buscan que el aspirante obtenga un buen dominio de la notación

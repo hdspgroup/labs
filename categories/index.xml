@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on HDSP Group</title>
-    <link>https://hdspgroup.github.io/categories/</link>
+    <link>https://hdspgroup.github.io/labs/categories/</link>
     <description>Recent content in Categories on HDSP Group</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     
-	    <atom:link href="https://hdspgroup.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://hdspgroup.github.io/labs/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
