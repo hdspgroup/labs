@@ -1,0 +1,13 @@
+{
+    "icons": [{
+      "src": "/labs/img/icon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },{
+        "src": "/labs/img/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    }],
+    "display": "standalone",
+    "start_url": "/labs/?utm_source=web_app_manifest"
+}

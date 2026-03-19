@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HDSP - Laboratorio de Deep Learning on HDSP Group</title>
+    <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/</link>
+    <description>Recent content in HDSP - Laboratorio de Deep Learning on HDSP Group</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://hdspgroup.github.io/labs/courses/deep-learning-labs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google Colaboratory</title>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/colab/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0100</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/colab/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/carlosh93/carlosh93.github.io/blob/master/files/introduccion_colab.ipynb&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Antes de empezar, da click en el boton &amp;ldquo;Open in Colab&amp;rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/copy_drive.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;De esta manera, este notebook quedará almacenado en Google drive, en la carpeta &lt;em&gt;Colab Notebooks&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;El objetivo de este tutorial es proporcionar un flujo de trabajo para entrenar modelos de Deep Learning. El flujo de trabajo propuesto requiere tener instalado los siguientes componentes en nuestra computadora:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Cliente de sincronización de Google Drive.&lt;/li&gt;
+&lt;li&gt;Editor de texto o IDE de python como Pycharm.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;La idea general será tener nuestro código python en una carpeta en Google Drive. De esta manera, utilizaremos el cliente de sincronización para modificar los archivos de manera local en nuestras computadoras (utilizando el editor de texto o un IDE de python) y que los cambios se vean reflejados directamente en Colab.&lt;/strong&gt; Aunque Colab permite editar archivos (simplemente dando doble click en el archivo deseado en el menu de la izquierda) es mucho mas sencillo y cómodo editar y manipular archivos complejos en un IDE de python.&lt;/p&gt;
+&lt;h3 id=&#34;cliente-google-drive&#34;&gt;Cliente Google Drive&lt;/h3&gt;
+&lt;p&gt;Para sistemas operativos Windows y Mac el cliente de Google drive puede ser descargado directamente de la pagina de google drive&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/drive/download/&#34;&gt;https://www.google.com/drive/download/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo, para sistemas operativos Linux no existe un cliente oficial de google drive, pero existen alternativas excelentes como Insync (Software pago una única vez) o el cliente para sistemas Ubuntu:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cambiatealinux.com/instalar-google-drive-en-ubuntu&#34;&gt;https://cambiatealinux.com/instalar-google-drive-en-ubuntu&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;editor-de-python&#34;&gt;Editor de Python&lt;/h3&gt;
+&lt;p&gt;Para trabajar con proyectos Python, es recomendable utilizar el entorno de desarrollo integrado (IDE) Pycharm. Actualmente, es posible acceder a una licencia de estudiante de la version profesional de Pycharm por un año:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jetbrains.com/es-es/community/education/#students&#34;&gt;https://www.jetbrains.com/es-es/community/education/#students&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para acceder al beneficio solo se necesita el correo electronico institucional (@correo.uis.edu.co o @saber.uis.edu.co o @uis.edu.co).&lt;/p&gt;
+&lt;p&gt;Si no se desea utilizar un IDE, es posible trabajar con un editor avanzado de texto: Visual Studio Code:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;https://code.visualstudio.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note que, debido a que nuestra intención es solo modificar el código en nuestra computadora local y ejecutar el código en Colab, no necesitamos tener instalado Python y las librerias de Tensorflow en nuestra computadora ya que estas se encuentran instaladas en Colab. Sin embargo, es recomendable instalar Python (Anaconda) y configurarlo con Pycharm en nuestra computadora local. A continuación proporciono links de interes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Instalar Anaconda: Windows: &lt;a href=&#34;https://docs.anaconda.com/anaconda/install/windows/,&#34;&gt;https://docs.anaconda.com/anaconda/install/windows/,&lt;/a&gt; Linux: &lt;a href=&#34;https://docs.anaconda.com/anaconda/install/linux/,&#34;&gt;https://docs.anaconda.com/anaconda/install/linux/,&lt;/a&gt; Mac: &lt;a href=&#34;https://docs.anaconda.com/anaconda/install/mac-os/&#34;&gt;https://docs.anaconda.com/anaconda/install/mac-os/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configurar Pycharm con Anaconda: &lt;a href=&#34;https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/&#34;&gt;https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Instalar liberias de Deep Learning: &lt;a href=&#34;https://asociacionaepi.es/primeros-pasos-con-tensorflow/&#34;&gt;https://asociacionaepi.es/primeros-pasos-con-tensorflow/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;solicitar-recursos-a-colab&#34;&gt;Solicitar Recursos a Colab&lt;/h2&gt;
+&lt;p&gt;Una vez creemos un notebook en Colab, para solicitar recursos debemos primero seleccionar el entorno de ejecución adecuado y dar click en el botón Conectar:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/sel_entorno_conect.gif&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Una vez conectados, Colab nos asigna un entorno &lt;strong&gt;Linux con 25.51 GB de Ram, 68 GB de disco duro&lt;/strong&gt; y una GPU cuyas caracteristicas podemos consultar ejecutando la siguiente celda&lt;/p&gt;
+&lt;h3 id=&#34;características-de-la-gpu-asignada&#34;&gt;Características de la GPU asignada&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# Check nvidia and nvcc cuda compiler
+
+!nvidia-smi
+!/usr/local/cuda/bin/nvcc --version
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Tue May 19 00:16:53 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.82       Driver Version: 418.67       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla P100-PCIE...  Off  | 00000000:00:04.0 Off |                    0 |
+| N/A   34C    P0    26W / 250W |      0MiB / 16280MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Sun_Jul_28_19:07:16_PDT_2019
+Cuda compilation tools, release 10.1, V10.1.243
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Por lo general, Colab asigna de manera aleatoria GPUs con diferente cantidad de memoria. Es recomendable utilizar una GPU de 16 o 15 GB de memoria para proyectos que requieran mucha memoria o trabajen con muchos datos. En caso de que Colab no nos asigne una GPU adecuada (algunas veces asigna GPUs de 8 o 11 GB de memoria) para nuestro proyecto, siempre podemos realizar distintas solicitudes hasta conseguir una GPU adecuada. Para esto debemos cerrar la sesion actual y volver a solicitar recursos:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/get_new_GPU.gif&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Este proceso se repite varias veces hasta que se nos asigne la GPU deseada. Note que es posible que requiera recargar la ventana (F5) para poder finalizar la sesion. &lt;strong&gt;OJO&lt;/strong&gt; Esto solo es necesario hacerlo si necesitamos una GPU de un tamaño de memoria especifico. Si nuestro proyecto es pequeño, cualquier GPU asignada por Colab servirá.&lt;/p&gt;
+&lt;p&gt;Nota: Este notebook está pre-configurado para trabajar con 25 Gb de memoria RAM, sin embargo esta configuración no es por defecto. La cantidad de memoria asignada por general es de 12 a 16 GB. Si crea un notebook nuevo en Colab y quiere tener 25 GB ver sección de Bonus al final de este tutorial.&lt;/p&gt;
+&lt;h3 id=&#34;comandos-básicos&#34;&gt;Comandos Básicos&lt;/h3&gt;
+&lt;p&gt;Debido a que cada notebook de Colab se ejecuta en una máquina Linux, es posible utilizar todos los comandos de Linux. Los comandos más básicos para movernos dentro de este tipo de ambiente son:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;%pwd # Ver el directorio actual de trabajo
+%ls # Listar los archivos del directorio actual
+%cd # Cambiar de directorio
+%mkdir # Crear un nuevo directorio
+%rmdir # Eliminar un directorio vacio
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Por ejemplo, si quiero ver en que carpeta me encuentro actualmente ejecuto una celda con el comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;%pwd
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;&#39;/content&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como vemos, me encuentro en la carpeta &amp;lsquo;/content&amp;rsquo;, es decir, la carpeta raiz de Colab. Adicionalmente, podemos ejecutar varios comandos dentro de una celda agregando %%shell al inicio de esta. Por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;%%shell
+pwd
+ls
+mkdir &amp;quot;nuevo_directorio&amp;quot;
+ls
+rmdir &amp;quot;nuevo_directorio&amp;quot;
+ls
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;/content
+sample_data
+nuevo_directorio  sample_data
+sample_data
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note que si se agrega &lt;em&gt;%%shell&lt;/em&gt; al inicio, se debe quitar el simbolo % al principio de cada comando. Así, en vez de escribir &lt;em&gt;%pwd&lt;/em&gt;, escribimos &lt;em&gt;pwd&lt;/em&gt; solamente. Note ademas, que el resultado de cada comando se muestra en una linea aparte. De esta manera, el primer comando ls, muestra el contenido de la carpeta /content, que en este caso es solo la carpeta &amp;lsquo;sample_data/&#39;. Luego creamos la carpeta &amp;lsquo;nuevo_directorio&amp;rsquo; (observe que el comando mkdir no arroja ninguna salida), listamos el contenido de content/ para ver la nueva carpeta creada y por ultimo borramos la carpeta.&lt;/p&gt;
+&lt;p&gt;En general se puede utilizar cualquier comando linux, incluso instalar paquetes linux con el software apt, por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;%%shell
+sudo apt install nano
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;%%shell
+sudo apt install nano
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Suggested packages:
+  spell
+The following NEW packages will be installed:
+  nano
+0 upgraded, 1 newly installed, 0 to remove and 31 not upgraded.
+Need to get 231 kB of archives.
+After this operation, 778 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic/main amd64 nano amd64 2.9.3-2 [231 kB]
+Fetched 231 kB in 2s (130 kB/s)
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76, &amp;lt;&amp;gt; line 1.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Selecting previously unselected package nano.
+(Reading database ... 144433 files and directories currently installed.)
+Preparing to unpack .../nano_2.9.3-2_amd64.deb ...
+Unpacking nano (2.9.3-2) ...
+Setting up nano (2.9.3-2) ...
+update-alternatives: using /bin/nano to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: using /bin/nano to provide /usr/bin/pico (pico) in auto mode
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Puede buscar mas comandos en internet, una pagina inicial sería:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://marcosmarti.org/comandos-basicos-de-linux/&#34;&gt;https://marcosmarti.org/comandos-basicos-de-linux/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;Lo primero que haremos será conectarnos con nuestra cuenta de Google Drive. &lt;strong&gt;Importante conectarse a la cuenta de google drive en donde se tiene almacenado el proyecto o el código a ejecutar.&lt;/strong&gt; Adicionalmente, esta cuenta debe estar previamente sincronizada en nuestra computadora utilizando un cliente de Google Drive (Ver Introducción). Para conectarnos a google drive, ejecutamos la celda de abajo y seguimos los pasos. Por favor seleccione la cuenta previamente sincronizada.&lt;/p&gt;
+&lt;h3 id=&#34;mount-goolge-drive&#34;&gt;Mount Goolge Drive&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# link to google drive
+
+from google.colab import drive
+#drive.mount(&#39;/content/gdrive/&#39;)
+drive.mount(&amp;quot;/content/gdrive/&amp;quot;, force_remount=True)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Go to this URL in a browser: https://accounts.google.com/o/oauth2/auth?client_id=947318989803-6bn6qk8qdgf4n4g3pfee6491hc0brc4i.apps.googleusercontent.com&amp;amp;redirect_uri=urn%3aietf%3awg%3aoauth%3a2.0%3aoob&amp;amp;response_type=code&amp;amp;scope=email%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdocs.test%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdrive%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdrive.photos.readonly%20https%3a%2f%2fwww.googleapis.com%2fauth%2fpeopleapi.readonly
+
+Enter your authorization code:
+··········
+Mounted at /content/gdrive/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si damos click en el panel de la izquierda, al icono de carpeta, veremos que tenemos una nueva carpeta llamada &amp;lsquo;gdrive&amp;rsquo;. De esta manera habremos sincronizado de manera correcta google drive con Colab.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/ver_gdrive.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Ahora la idea es trabajar en nuestro código. Existen básicamente dos maneras:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Añadir el codigo directamente en este notebook e ir ejecutando cada celda.&lt;/li&gt;
+&lt;li&gt;Ejecutar un script de python directamente desde una celda.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En este tutorial se utilizará la segunda forma. Para esto utilicé como ejemplo el tutorial de tensorflow:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tensorflow.org/tensorboard/get_started&#34;&gt;https://www.tensorflow.org/tensorboard/get_started&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Seguidamente, creé un proyecto en mi computadora local llamado colab_tutorial. La carpeta de este proyecto se encuentra sincronizado con mi Google Drive, por lo tanto, todo cambio que se realice en mi computadora local se vera reflejado directamente en Drive y, de igual forma, en Colab.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/screen_pycharm.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/carpeta_google_drive.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Una vez tengamos listo el código en nuestra carpeta local, solo basta con ejecutar una celda de la siguiente forma&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!python3 nombre_archivo.py --parametros (opcional)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;De esta forma ejecutaremos nuestro código en Colab. Note que nuestro código tambien puede generar salidas, las cuales (si se almacenan dentro de la misma carpeta del proyecto) quedarán sincronizadas con nuestra computadora local.&lt;/p&gt;
+&lt;p&gt;Aqui un ejemplo de ejecutar la funcion main.py dentro de mi carpeta proyecto &amp;ldquo;colab_tutorial&amp;rdquo;. Primero vamos hacia la carpeta con los comandos básicos explicados en la sección 2.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;%cd /content/gdrive/My\ Drive/colab_tutorial/
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;/content/gdrive/My Drive/colab_tutorial
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;%ls
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;main.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;!python main.py
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;2020-05-19 01:24:56.751869: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-05-19 01:24:58.852417: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-05-19 01:24:58.866042: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:58.866658: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2020-05-19 01:24:58.866696: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-05-19 01:24:58.868230: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-19 01:24:58.869913: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-05-19 01:24:58.870253: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-05-19 01:24:58.871814: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-05-19 01:24:58.872594: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-05-19 01:24:58.875551: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-19 01:24:58.875654: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:58.876241: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:58.876770: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-05-19 01:24:58.881933: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2200000000 Hz
+2020-05-19 01:24:58.882377: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x138f100 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-05-19 01:24:58.882409: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-05-19 01:24:58.960753: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:58.961607: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x138ef40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-05-19 01:24:58.961643: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0
+2020-05-19 01:24:58.961839: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:58.962429: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2020-05-19 01:24:58.962471: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-05-19 01:24:58.962526: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-19 01:24:58.962541: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-05-19 01:24:58.962554: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-05-19 01:24:58.962566: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-05-19 01:24:58.962581: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-05-19 01:24:58.962596: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-19 01:24:58.962655: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:58.963213: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:58.963746: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-05-19 01:24:58.963791: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-05-19 01:24:59.498013: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-05-19 01:24:59.498074: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 
+2020-05-19 01:24:59.498084: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
+2020-05-19 01:24:59.498276: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:59.498864: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-19 01:24:59.499412: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-05-19 01:24:59.499466: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14973 MB memory) -&amp;gt; physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0)
+2020-05-19 01:24:59.547390: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2020-05-19 01:24:59.547453: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1363] Profiler found 1 GPUs
+2020-05-19 01:24:59.548374: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcupti.so.10.1
+2020-05-19 01:24:59.678606: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1479] CUPTI activity buffer flushed
+Epoch 1/10
+2020-05-19 01:25:00.110434: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-19 01:25:00.407164: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+   1/1875 [..............................] - ETA: 0s - loss: 2.5025 - accuracy: 0.0000e+002020-05-19 01:25:00.411242: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1479] CUPTI activity buffer flushed
+2020-05-19 01:25:00.411386: I tensorflow/core/profiler/internal/gpu/device_tracer.cc:216]  GpuTracer has collected 62 callback api events and 62 activity events.
+2020-05-19 01:25:00.424149: I tensorflow/core/profiler/rpc/client/save_profile.cc:168] Creating directory: logs/fit/20200519-012459/train/plugins/profile/2020_05_19_01_25_00
+2020-05-19 01:25:00.430074: I tensorflow/core/profiler/rpc/client/save_profile.cc:174] Dumped gzipped tool data for trace.json.gz to logs/fit/20200519-012459/train/plugins/profile/2020_05_19_01_25_00/998f21424347.trace.json.gz
+2020-05-19 01:25:00.430893: I tensorflow/core/profiler/utils/event_span.cc:288] Generation of step-events took 0.016 ms
+
+2020-05-19 01:25:00.449145: I tensorflow/python/profiler/internal/profiler_wrapper.cc:87] Creating directory: logs/fit/20200519-012459/train/plugins/profile/2020_05_19_01_25_00Dumped tool data for overview_page.pb to logs/fit/20200519-012459/train/plugins/profile/2020_05_19_01_25_00/998f21424347.overview_page.pb
+Dumped tool data for input_pipeline.pb to logs/fit/20200519-012459/train/plugins/profile/2020_05_19_01_25_00/998f21424347.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to logs/fit/20200519-012459/train/plugins/profile/2020_05_19_01_25_00/998f21424347.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to logs/fit/20200519-012459/train/plugins/profile/2020_05_19_01_25_00/998f21424347.kernel_stats.pb
+
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.2168 - accuracy: 0.9365 - val_loss: 0.1001 - val_accuracy: 0.9694
+Epoch 2/10
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.0948 - accuracy: 0.9710 - val_loss: 0.0865 - val_accuracy: 0.9725
+Epoch 3/10
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.0670 - accuracy: 0.9786 - val_loss: 0.0708 - val_accuracy: 0.9778
+Epoch 4/10
+1875/1875 [==============================] - 5s 2ms/step - loss: 0.0525 - accuracy: 0.9832 - val_loss: 0.0623 - val_accuracy: 0.9810
+Epoch 5/10
+1875/1875 [==============================] - 5s 2ms/step - loss: 0.0433 - accuracy: 0.9855 - val_loss: 0.0696 - val_accuracy: 0.9806
+Epoch 6/10
+1875/1875 [==============================] - 5s 2ms/step - loss: 0.0357 - accuracy: 0.9885 - val_loss: 0.0685 - val_accuracy: 0.9816
+Epoch 7/10
+1875/1875 [==============================] - 5s 2ms/step - loss: 0.0299 - accuracy: 0.9901 - val_loss: 0.0625 - val_accuracy: 0.9822
+Epoch 8/10
+1875/1875 [==============================] - 5s 2ms/step - loss: 0.0276 - accuracy: 0.9908 - val_loss: 0.0655 - val_accuracy: 0.9821
+Epoch 9/10
+1875/1875 [==============================] - 5s 2ms/step - loss: 0.0237 - accuracy: 0.9925 - val_loss: 0.0789 - val_accuracy: 0.9806
+Epoch 10/10
+1875/1875 [==============================] - 5s 2ms/step - loss: 0.0230 - accuracy: 0.9923 - val_loss: 0.0750 - val_accuracy: 0.9827
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este ejemplo en particular se hizo uso de la herramienta &lt;a href=&#34;https://www.tensorflow.org/tensorboard&#34;&gt;Tensorboard&lt;/a&gt;, el cual proporciona una interfaz de visualización para el entrenamiento de los modelos. Al ejecutar nuestro código, se guarda en la carpeta logs el resultado de entrenamiento para cada epoch. Para visualizar la herramienta Tensorboard tenemos basicamente dos formas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Visualizar Tensorboard directamente en Colab&lt;/li&gt;
+&lt;li&gt;Visualizar Tensorboard en nuestra computadora local&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La desventaja de visualizar en Colab es que debemos esperar a que termine el entrenamiento para visualizar Tensorboard. Por el contrario, debido a que tenemos nuestra carpeta sincronizada, podemos ejecutar Tensorboard en nuestra computadora y visualizar el entrenamiento de manera local en tiempo real mientras se ejecuta el entrenamiento en Colab.&lt;/p&gt;
+&lt;p&gt;Para visualizar el resultado directamente en este notebook ejecutamos las siguientes dos celdas. La primera solo se ejecuta una vez, pues es la encargada de cargar la extension.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Load the TensorBoard notebook extension (Ejecutar una sola vez)
+%load_ext tensorboard
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;%tensorboard --logdir logs/fit
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Reusing TensorBoard on port 6006 (pid 1921), started 0:04:55 ago. (Use &#39;!kill 1921&#39; to kill it.)
+
+
+
+&amp;lt;IPython.core.display.Javascript object&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Los detalles de implementación del código utilizado de ejemplo se pueden consultar directamente en la página del tutorial: &lt;a href=&#34;https://www.tensorflow.org/tensorboard/get_started&#34;&gt;https://www.tensorflow.org/tensorboard/get_started&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusiones&#34;&gt;Conclusiones&lt;/h2&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;En conclusion, gracias a la sincronización que nos provee el cliente de google drive, podemos hacer todas las modificaciones necesarias de manera local en nuestras computadoras y unicamente utilizar colab para ejecturar el entrenamiento de la red neuronal aprovechando su GPU. Adicionalmente, el uso de la herramienta Tensorboard es fundamental para monitorear el entrenamiento.&lt;/p&gt;
+&lt;h3 id=&#34;bonus&#34;&gt;Bonus&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1)&lt;/strong&gt;
+Cuando ejecutamos entrenamientos muy largos, es posible que Colab se desconecte inesperadamente debido a falta de interactividad. Para solucionar este problema podemos agregar un código Javascript en esta página para hacer &amp;ldquo;clicks&amp;rdquo; de manera automática en el boton Conect (Boton donde se muestra uso de RAM y Disco). El código en cuestión es el siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function ClickConnect(){
+    console.log(&amp;quot;Clicked on connect button&amp;quot;); 
+    document.querySelector(&amp;quot;colab-connect-button&amp;quot;).click()
+}
+setInterval(ClickConnect,60000)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Este código debe agregarse en la consola de Javascript de la siguiente manera:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/prevent_disconecting.gif&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2)&lt;/strong&gt; Si se quiere mas memoria ram, se puede ejecutar el siguiente código en una celda:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;a = []
+while(1):
+    a.append(‘1’)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Al ejecutarlo, este comando va a llenar la memoria ram disponible en Colab y forzará a este a ampliar la capacidad. Debemos esperar aproximadamente 1 minuto hasta que salga un letrero que pregunta si deseamos ampliar la memoria. Despues de aceptar, tendremos más memoria RAM en nuestro notebook. Mas información: &lt;a href=&#34;https://towardsdatascience.com/upgrade-your-memory-on-google-colab-for-free-1b8b18e8791d&#34;&gt;https://towardsdatascience.com/upgrade-your-memory-on-google-colab-for-free-1b8b18e8791d&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tarea&#34;&gt;Tarea&lt;/h2&gt;
+&lt;p&gt;Realice las siguientes actividades y elabore un informe con sus análisis y conclusiones&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Lea el tutorial descrito en el siguiente enlace:  &lt;a href=&#34;https://www.tensorflow.org/tensorboard/get_started&#34;&gt;https://www.tensorflow.org/tensorboard/get_started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Instale el IDE de python Pycharm y el cliente de Google drive como se describe en este tutorial.&lt;/li&gt;
+&lt;li&gt;Implemente el código mostrado en el tutorial &lt;a href=&#34;https://www.tensorflow.org/tensorboard/get_started&#34;&gt;https://www.tensorflow.org/tensorboard/get_started&lt;/a&gt; en un archivo de python (.py).&lt;/li&gt;
+&lt;li&gt;Sincronice el código con Google Drive utilizando el cliente de Google drive&lt;/li&gt;
+&lt;li&gt;Ejecute el código en Colab y visualice la salida en Tensorboard.&lt;/li&gt;
+&lt;li&gt;Utilice el editor Pycharm para modificar el archivo de python donde se implementó el código. Cambie el número de epocas (EPOCHS)
+a 10 y vuelva a ejecutar el código.&lt;/li&gt;
+&lt;li&gt;Elabore un informe &lt;strong&gt;corto&lt;/strong&gt; donde describa con sus palabras que es Google Colab y que es Tensorboard y para qué sirve estas dos
+herramientas.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning I</title>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0100</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts/</guid>
+      <description>&lt;p&gt;Antes de inicar con conceptos básicos sobre redes neuronales tensorflow keras etc,  estudiaremos las ideas fundamentales sobre el mundo de la inteligencia artificial.&lt;/p&gt;
+&lt;p&gt;La inteligencia artificial se puede definir como la ciencia de entrenar máquinas para ejecutar tareas humanas y machine learning es una parte de la inteligencia artifical encargada de resolver esos problemas.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Image(&#39;ML.PNG&#39;, width = 800)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;../figs/Machine_learning_I_1_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Machine Learning es un metodo de análisis para la construcción de modelos automatas, que usan diversos algoritmos para aprender iterativamente de un conjunto de datos historicos.&lt;/p&gt;
+&lt;p&gt;Los campos de aplicación de machine learning son muy diversos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Detección de fraudes&lt;/li&gt;
+&lt;li&gt;Resultados de motores de busqueda&lt;/li&gt;
+&lt;li&gt;Análisis de sentimientos&lt;/li&gt;
+&lt;li&gt;Detección de objetos&lt;/li&gt;
+&lt;li&gt;Reconocimiento de voz&lt;/li&gt;
+&lt;li&gt;Realce de imágenes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Uno de los sistemas de machine learning que ha revolucionado la industria en los ultimos años son las conocidas &lt;strong&gt;redes neuronales.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Las redes neuronales son una forma de modelar matematicamente un neuron biológico. Esto es, son arquitecturas inspiradas en el cerebro humano y en su estructura ampliamente paralela, con capacidad de adquirir, almacenar y utilizar conocimiento experimental, generalizando su conocimiento a partir de ejemplos anteriores.&lt;/p&gt;
+&lt;p&gt;En 1943 se lanza el primer modelo computacional para una neurona artificial y es llamado de perceptron.&lt;/p&gt;
+&lt;p&gt;El perceptron (Figura 1), es la idea mas simple de un neuron artificial y se puede definir como el conjunto de entradas de una muestra &lt;strong&gt;X&lt;/strong&gt; las cuales representan los estimulos que la neurona recibe del ambiente y que se combinan con los pesos sinápticos &lt;strong&gt;W&lt;/strong&gt; para determinar la entrada del neuron, dicha entrada pasa por una función de activación o umbral que genera una salida &lt;strong&gt;Y&lt;/strong&gt; la cual determinará si el neuron se activa siempre y cuando el valor de la combinacion lineal de sus entradas con los pesos supere el umbral de activación.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Image(&#39;perceptron.PNG&#39;, width = 800)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;../figs/Machine_learning_I_4_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;En un neuron podemos codificar información que nos servira para realizar tareas de calsificación prediccion, etc. Sin embargo la figura de un perceptron matematicamente (antes de la funcion de activación), no es mas que un función que realiza un calculo numérico lineal.
+Internamente la neurona utiliza todos los valores de entrada para realizar una suma ponderada entre los estimulos &lt;strong&gt;X&lt;/strong&gt; multiplicados por un valor especifico llamado pesos &lt;strong&gt;W&lt;/strong&gt; y que son los parametros y la parte fundamental del proceso de aprendizaje.&lt;/p&gt;
+&lt;p&gt;$$Y = x_1w_1 + x_2w_2 + x_3w_3 ..+ ..+ ..+ x_nw_n + b$$&lt;/p&gt;
+&lt;p&gt;donde &lt;strong&gt;b&lt;/strong&gt; es el termino independiente de la ecuación y es conocido como &lt;strong&gt;bias&lt;/strong&gt; el cual tomara el control para mover la recta de la función, y es una conección mas a la entrada de cada neurona.&lt;/p&gt;
+&lt;p&gt;Si lo ven el modelo matemático de una neurona no es mas que una funcion lineal&lt;/p&gt;
+&lt;p&gt;$$ y = aX +b$$&lt;/p&gt;
+&lt;p&gt;Una forma práctica de analizar una neurona artificial es simulando una compuerta &lt;strong&gt;and&lt;/strong&gt; donde tenemos dos posibles valores de entrada &lt;strong&gt;x1&lt;/strong&gt; ,  &lt;strong&gt;x2&lt;/strong&gt;  y cuatro posibles combinaciones de salida &lt;strong&gt;y&lt;/strong&gt; que las podemos etiquetar como 0(inactiva) y 1(activa), este nuevo concepto etiqueta es clave en el aprendizaje de máquinas supervisado ya que la neurona aprenderá de los datos históricos o también conocidos como etiquetas ( como se puede ver las etiquetas son los mismos valores de salida).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Image(&#39;tabla.PNG&#39;, width = 800)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;../figs/Machine_learning_I_6_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Pero como se sabe el resultado de usar una regresión lineal entre las combinaciones entre x1 y x2 nos da un resultado  numérico continuo  y no un  número binario, para eso se introducen las llamadas funciones de activación, que en la figura 1 son representadas por la ultima caja del modelo y que utilizaran un umbral para decidir si el valor numérico entregado por la suma ponderada supera dicho umbral se entregará como salida un 1 ( neurona activa) caso contrario será entregado un 0 ( neurona no activa).&lt;/p&gt;
+&lt;p&gt;una forma mas simple e intuitiva de ver este problema es tratandolo como un problema de clasificación. Esto es encontrar una recta que separe los valores 0 de los valores 1 como se muestra en la siguiente grafica de una compuerta &lt;strong&gt;and&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Image(&#39;and.PNG&#39;, width = 500)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;../figs/Machine_learning_I_8_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;La linea azul es la linea de regresión que la neurona aprendio despues de alguna etapas de entrenamiento y consiguio encontrar los mejores valores de &lt;strong&gt;W&lt;/strong&gt; para lograr su objetivo ( separar los valores 0 de los valores 1).&lt;/p&gt;
+&lt;p&gt;Pero que es el entrenamiento?
+el entrenamiento en modelos de machine learning es la aplicacion de un algoritmo de aprendizje através de iteraciones sobre el conjunto de parametros &lt;strong&gt;W&lt;/strong&gt; y &lt;strong&gt;b&lt;/strong&gt; con el fin de actualizarlos en cada iteración reduciendo el error y ahciendo que la salida sea lo mas parecida posible a la etiqueta.&lt;/p&gt;
+&lt;p&gt;Estos algoritmos de aprendizaje buscan imitar la la forma en que funcionan las neuronas en el cerebro (si generan pulsos electricos que se trasmitan a otras neuronas o no), se utiliza la formula de aprendizaje que se resume en 2 pasos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inicialización de pesos con valores pequeños&lt;/li&gt;
+&lt;li&gt;Para cada muestra de entrada de X se cacula su respectiva salida Y y se actualizan los pesos W de la siguiente manera:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$W_j = W_j + \Delta W_j$$&lt;/p&gt;
+&lt;p&gt;donde $\Delta W_j$ es:&lt;/p&gt;
+&lt;p&gt;$$\Delta W_j = \eta (Y - \hat {Y}) X_j$$&lt;/p&gt;
+&lt;p&gt;donde $Y$ es el valor de la etiqueta original y $\hat {Y}$ es el valor calculado a la salida del perceptron, usando como funcion de activación el escalon unitario.&lt;/p&gt;
+&lt;p&gt;#Porque se deben entrenar los modelos de aprendizaje automático?&lt;/p&gt;
+&lt;p&gt;A fin de que nuestros algoritmos de aprendizaje automático funcionen de la manera mas adecuada posible (esto es que se ajusten lo mejor posible al problema planteado), se debe llevar a cabo un mapa conceptual de que es lo que se pretende lograr con el modelo y como podemos conseguir que dicho modelo se ajuste a los datos presentados. Esto requiere de mucha practica ya que cada algoritmo lleva caonsigo sus propias caracteristicas y se basa en determinadas suposiciones,  &amp;ldquo;&lt;em&gt;Ningun algoritmo es perfecto todos los modelos estan equivocados pero algunos son utiles. George Eward Pelham&lt;/em&gt; &amp;quot;&lt;/p&gt;
+&lt;p&gt;A dia de hoy existen, decenas de frameworks y APIs que nos facilitan crear modelos de aprendizaje automático de una forma simple y eficiente. Pero que hay detras de estos modelos? porque se habla de algoritmos y reglas de aprendizaje? y para que sirve esto?. Pues en este apartado encontraras una simple explicación del porque es importante entrenar los modelos de aprendizaje a través de un ejemplo de regresión lineal.&lt;/p&gt;
+&lt;p&gt;Todo parte de un conjunto de datos historicos, el machine learning no existiria si no tuvieramos datos con que entrenar nuestros modelos (&lt;em&gt;&lt;strong&gt;sem dados no há para isso&lt;/strong&gt;&lt;/em&gt; ==&amp;gt; pequeña muestra de un error en un sistema de reconocimiento en portugues cuando pronuncié &lt;em&gt;&lt;strong&gt;sin datos no hay paraiso&lt;/strong&gt;&lt;/em&gt; :-)).&lt;/p&gt;
+&lt;p&gt;Como el objetivo es crear un sistema de regresión linela, recurriremos a su formula:&lt;br&gt;
+$$ y=WX+b$$&lt;/p&gt;
+&lt;p&gt;donde &lt;strong&gt;W&lt;/strong&gt; y &lt;strong&gt;b&lt;/strong&gt; como ya sabemos representan los pesos y bias como son llamados en machine learning o como matematicamente se les conoce la pendiente e intersección de la recta respectivamente, &lt;strong&gt;X&lt;/strong&gt; representa el conjunto de entrada de nuestros sistemas (nuestros datos historicos) y &lt;strong&gt;y&lt;/strong&gt; será el resultado deseado.&lt;/p&gt;
+&lt;p&gt;Iniciaremos creando un conjunto de características aleatorias sinteticas que representaran el conjunto de datos de entrada &lt;strong&gt;X&lt;/strong&gt;, suponiendo que se trata de una variable de precio de casas en un barrio por ejemplo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#importamos las librerias necesarias
+import tensorflow as tf
+
+# generamos valores aleatorios de entrada en fomra de tensores
+Numero_muestras=1000
+X = tf.random.normal(shape=(Numero_muestras,))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ahora crearemos el modelo de regresión lineal, basado en la formula anterior e inicializando los pesos y el bias con valores aleatorios, esto con el fin de mostrar por que es imoprtante el entrenamiento. Atento que mencione &amp;ldquo;&amp;ldquo;inicializar&amp;rdquo;&amp;quot;, en todo algoritmo de machine learning en su etapa inicial los pesos y bias se inician con valores aleatorios my pequeños preferiblemente diferentes de zero. En este caso a modo de ejemplo asignaremos unos valores constantes de: &lt;strong&gt;W=16.0&lt;/strong&gt; y &lt;strong&gt;b=10.0&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Regresion(object):
+  def __init__(self):
+    self.W = tf.Variable(16.0)  # pesos w inicializado en 16
+    self.b = tf.Variable(10.0) # bias inicializado en 10
+
+  def __call__(self,X):
+    return self.W*X + self.b   # ecuación de la regresión
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;y como por arte de magia el modelo de regresión lineal esta creado de forma muy simple, donde al llamar el metodo call retornaremos nuestra función de regresión previamente explicada.&lt;/p&gt;
+&lt;p&gt;Ahora se creará una instancia del modelo y se hará una predicción&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;modelo = Regresion()  # instancia del modelo
+modelo(20).numpy()    # en este caso X es la entrada de la redque conocemos y le damos un valor de 20
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;330.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como se puede ver el resultado de la regresión nos dio un valor de 330.0. Pero será este resultado lo que realmente estabamos buscando?, será que el modelo me predijo correctamente lo que se queria?. una forma de averiguarlo es creando un conjunto de datos historicos sinteticos a los cuales les  llamaremos &amp;ldquo;reales&amp;rdquo;. Recordemos que todo sistema de machine learning funciona con datos historicos.
+Como estamos trabajando con un sistema supervisado, recrearemos unos valores para &lt;strong&gt;W&lt;/strong&gt; y &lt;strong&gt;b&lt;/strong&gt; ideales para asi poder tener nuestros datos historicos simulados.&lt;/p&gt;
+&lt;p&gt;Este es el punto mas importante los datos de &lt;strong&gt;w&lt;/strong&gt; y &lt;strong&gt;b&lt;/strong&gt; no los conocemos si los supieramos no necesitariamos algoritmos de aprendizaje, es por eso que en este ejemplo los idealizamos como si los supieramos para entender el por que es importante la etapa de entrenamiento.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#datos ideales
+TRUE_W=3.0
+TRUE_b=0.5
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para tener un conjunto de datos sinteticos mas reales adicionaremos ruido a nuestros conjunto de datos, esto simulara efecto de datos perdidos en el dataset, datos extremos, datos nulos etc.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;noise =tf.random.normal(shape=(Numero_muestras,))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Con lo anterior creamos nuestro conjunto de datos historico simulado&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;y=X*TRUE_W+TRUE_b + noise
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ahora si, a lo que vinimos, vamos a crear un grafico donde pondremos los datos historicos reales y los datos que el modelo predice. Lo ideal seria encontrar una linea de regresion que este bien por encima de los datos originales&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import matplotlib.pyplot as plt
+#grafica de los valores historicos reales
+plt.scatter(X,y, label=&amp;quot;valores reales&amp;quot;)
+#grafica de los valores predichos por el modelo
+plt.scatter(X,modelo(X), label = &amp;quot;valores predichos&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.collections.PathCollection at 0x7f18e6a00a58&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../figs/Machine_learning_I_24_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;los puntos en azul representan los valores reales, la linea de regresion naranja son los predichos por el modelo. Pero por que estan tan lejos una de la otra? esto se debe a que los pesos no se actualizaron.&lt;/p&gt;
+&lt;p&gt;Ese es nuestro objetivo actualizar los pesos sucesivamente hasta encontrar los que mejor adapten la linea de regresión a los datos historicos. En este caso nuestro modelo deberiá haber encontrado unos pesos de &lt;strong&gt;W=3.0&lt;/strong&gt; y &lt;strong&gt;b=0.5&lt;/strong&gt; esto no se consiguio debido al hecho de que en el modelo de regresión creado los valores de &lt;strong&gt;W&lt;/strong&gt; y &lt;strong&gt;b&lt;/strong&gt; se dejaron fijos en 16.0 y 10.0 respectivamente.&lt;/p&gt;
+&lt;p&gt;Es por eso que el entrenamiento de los modelos es de suma importancia en todo algorimto de aprendizaje y conceptos como función de coste, errore medio cuadratico, descenso del gradiente entre otros empiezan a aparecer para facilitar la vida al momento de predecir.&lt;/p&gt;
+&lt;p&gt;#Entrenamiento del modelo de regresión&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;print(&#39;valores reales    &#39;,X[:4].numpy(),&#39;\nValores predichos &#39;,modelo(X)[:4].numpy())
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;valores reales     [-0.98775786 -0.4940117  -1.1781967  -0.46405175] 
+Valores predichos  [-5.804126   2.0958128 -8.851147   2.575172 ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como se puede observar el error entre los valores reales y los valores predichos por el modelo son demasiado grandes es por eso que la grafica a quedado tan separada una de la otra. Con el fin de ajustar los valores y reducir esa discrepancia entre valores reales y predichos, se usan tecnicas que minimicen esos errores y son conocidas como funciones de coste &lt;em&gt;J&lt;/em&gt;, que para el caso de la regresión lineal se tiene la del &lt;strong&gt;error minimo cuadrado&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;$J = (y_{real} - y_{predicho})^{2}$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def error_medio_cuadratico(y_real,y_predicho):
+  return tf.reduce_mean(tf.square(y_real-y_predicho)) # error
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Como la tasa de errores se obtiene haciendo la diferencia de cada valor, se aplica la media de todos los errores de &lt;strong&gt;Y_real&lt;/strong&gt; y &lt;strong&gt;Y_predicho&lt;/strong&gt; con el objetivo de tener un solo valor que es el que se ira a sumar o restar a los pesos y bias para que estos se actualicen.
+seriá algo asi&lt;/p&gt;
+&lt;p&gt;$W (+/-) error   $  y  $ b (+/-) error$&lt;/p&gt;
+&lt;p&gt;Pero como saber si se debe sumar o restar el erro a los pesos, es aqui donde entra una de los conceptos mas interesantes del aprendizaje de maquinas que es el calculo de la derivada de la funcion de coste con respecto a los pesos. Uno de los metodos mas usados para realizar esto es la optimización del gradiente descendiente. Con esta técnica conseguimos definir dos cosas&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;La direccion del cambio, saber si debo aumentar o disminuir los pesos&lt;/li&gt;
+&lt;li&gt;La magnitud del cambio, saber si se disminuye mucho o se aumenta mucho el valor&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;El primer item se soluciona con el calculo del gradiente, ya para el segundo es necesario adicionar un parámetro mas a nuestro algoritmmo de aprendizaje que es la tasa de aprendizaje que generalmente esta configurada entre 0 y 1.&lt;/p&gt;
+&lt;p&gt;Calcularemos el gradiente con las funciones ofrecidas por tensorflow.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def entrenamiento(modelo,X,y,tasa_aprendizaje=0.01):
+  with tf.GradientTape() as t:
+    error_actual=error_medio_cuadratico(y ,modelo(X))
+  derivada_W, derivada_b = t.gradient(error_actual,[modelo.W,modelo.b])  
+  modelo.W.assign_sub(tasa_aprendizaje*derivada_W)
+  modelo.b.assign_sub(tasa_aprendizaje*derivada_b)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ahora con nuestra función de entrenamiento que contiene la actualizacion de pesos podremos mejorar el cálculo de nuestro modelo de regresión, para eso crearemos un loop con un determinado número de iteraciones para que los pesos se actualicen correctamente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# en estas variables guardaremos los valores de los pesos de cada pasada 
+ws,bs = [],[]
+numero_itraciones=10
+for iteracion in range(numero_itraciones):
+  ws.append(modelo.W.numpy())
+  bs.append(modelo.b.numpy())
+
+  error_actual = error_medio_cuadratico(y,modelo(X))
+
+  entrenamiento(modelo,X,y,tasa_aprendizaje=0.1)
+  print(&amp;quot;Iteración {}, perdida {}&amp;quot;.format(iteracion, error_actual.numpy()))
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Iteración 0, perdida 255.19960021972656
+Iteración 1, perdida 165.8444366455078
+Iteración 2, perdida 107.90821838378906
+Iteración 3, perdida 70.342041015625
+Iteración 4, perdida 45.98304748535156
+Iteración 5, perdida 30.187406539916992
+Iteración 6, perdida 19.94432830810547
+Iteración 7, perdida 13.301708221435547
+Iteración 8, perdida 8.9938383102417
+Iteración 9, perdida 6.2000041007995605
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como se puede observar la error despues de varias iteraciones disminuye considerablemnte eso quieres decir que la red esta aprendiendo a ajustar los pesos y generalizarlos a los ideales&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import matplotlib.pyplot as plt
+#grafica de los valores historicos reales
+plt.scatter(X,y, label=&amp;quot;valores reales&amp;quot;)
+#grafica de los valores predichos por el modelo
+plt.scatter(X,modelo(X), label = &amp;quot;valores predichos&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.collections.PathCollection at 0x7f18ddeda3c8&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../figs/Machine_learning_I_35_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Ahora se puede observar que los puntos de la linea azul se aproximan bastante a la linea originial naranja. es por eso que es importante la etapa de entrenamiento en modelos de machine learning.&lt;/p&gt;
+&lt;p&gt;Sin embargo, este es un modelo de regresión para funciones linealmente separables como el caso de la compuerta &lt;strong&gt;and&lt;/strong&gt; pero si el problema representa funciones no linealmente separables, sera que un solo perceptron es suficiente para hacer los calculos.&lt;/p&gt;
+&lt;p&gt;La respuesta es no, para eso se conectan multiples neurones en multiples capas intercaonectados unos con otros formando lo que conocemos como redes neuronales. Que será explicado en el notebook Machine Learning II&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning II</title>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts2/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0100</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/hdspgroup/hdspgroup.github.io/blob/master/data/machine_learningII.ipynb&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Antes de empezar, da click en el boton &amp;ldquo;Open in Colab&amp;rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/copy_drive.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;De esta manera, este notebook quedará almacenado en Google drive, en la carpeta &lt;em&gt;Colab Notebooks&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;Despúes de conocer como funciona una nuerona artifical, tambien conocida como unidad central de procesamiento, en este notebook estudiaremos las redes neuronales, multilayer perceptron (MLP), que son la conexion de varios neurones artificiales a lo largo diferentes capas, entre mas capas de neurones interconectadas tenga una red mas posibilidades de aprendizaje de caracteristicas mas complejas tendra. La siguiente figura muestra una red MLP de 4 capas, una de entrada dos ocultas y una de salida.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from IPython.display import Image
+Image(&#39;MLP.PNG&#39;, width=900)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;../figs/machine_learningII_1_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Todo el proceso de aprendizaje ocurre en las capas de neuronas. La primera capa de entrada o también llamada de distribución es solo un nombre figurativo ya que en realidad no posee ningún tipo de neurona, conteniendo apenas un numero de nodos igual al número de señales de entrada de la red, su única función es representar la distribución de los datos de entrada para cada neurona de la capa siguiente.&lt;/p&gt;
+&lt;p&gt;A continuación le siguen las capas escondidas que pueden estar representadas por una, muchas o inclusive ninguna capa de neuronas, la función principal de estas neuronas es capacitar a la red para extraer características, además de conseguir representar problemas que no sean linealmente separables como los presentados en el notebook anterior.&lt;/p&gt;
+&lt;p&gt;Finalmente contamos con una capa de salida, que contiene necesariamente un numero de neuronas igual al número de señales de la red. Ajustando los valores de los pesos sinápticos, la red puede representar o &amp;ldquo;memorizar&amp;rdquo; las relaciones entre los datos de entrada y los datos de salida, asumiendo así una característica de memoria asociativa. Es así que todo el proceso de aprendizaje ocurre en las capas ocultas o escondidas.&lt;/p&gt;
+&lt;p&gt;El proceso de aprendizaje de una red neuronal puede ser de dos formas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Aprendizaje supe visionado: el cual requiere de un conjunto de datos previamente etiquetados para llegar a una respuesta adecuada, así el algoritmo extraerá una representación del conocimiento a partir de estos ejemplos. Esto es guiar paso a paso a la red para que aprenda lo que se requiere&lt;/li&gt;
+&lt;li&gt;Aprendizaje no sueprvisionado: en este tipo de aprendizaje no se cuenta con datos etiquetados todos se hace por medio de agrupación de patrones para encontrar los que mas se relacionen entre si y conseguir llegar al objetivo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En este notebook nos centraremos en la implementación de una red neuronal MLP con aprendizaje supervisionado.&lt;/p&gt;
+&lt;h2 id=&#34;multilayer-perceptron-para-clacificación-de-dígitos&#34;&gt;Multilayer perceptron para clacificación de dígitos.&lt;/h2&gt;
+&lt;p&gt;En este ejemplo vamos a utilizar el conjunto de datos MNIST que es un banco de datos de dígitos numéricos escritos a mano, este dataset consta de 60 mil imágenes de entrenamiento y 10 mil imágenes de prueba, para facilitar la etapa de entrenamiento se trabajara con una version reducidad del dataset de 42 mil imagenes en totoal, de las cuales 33600 serán usadas para entrenamiento y el resto para teste. Para conocer un poco más sobre este banco de datos diríjase a la página oficial  &lt;a href=&#34;http://yann.lecun.com/exdb/mnist/&#34;&gt;MNIST&lt;/a&gt;. El dataset MNIST utilizado en este laboratorio puede ser descargado del siguiente &lt;a href=&#34;https://github.com/hdspgroup/hdspgroup.github.io/raw/master/data/mnist.csv.zip&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;El objetivo de este ejemplo es hacer una predicción dado un conjunto de datos, en nuestro caso será pasar a la capa de entrada un conjunto de pixeles que representan los números del 0 al 9 y clasificaremos la salida o el digito que corresponda a esos datos de entrada.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#importamos las librerias necesarias para trabajar en este ejemplo
+import numpy as np
+import pandas as pd
+from  sklearn.preprocessing import StandardScaler
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;#marcamos una semilla para reproducir siempre los mismos resultados
+np.random.seed(1337)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;#leemos el dataset
+df = pd.read_csv(&#39;/content/drive/My Drive/Colab Notebooks/datasets/mnist.csv&#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;# la siguiente es una tabla que contiene el dataset donde cada fila representa una imágen con un determinado número como se puede observar
+#la primera columna son las etiquetas, o sea el número correspondiente a esa determinada imágen
+df.head()
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;pre&gt;&lt;code&gt;#separamos las imagenes de entrenamiento
+df_train = df.iloc[:33600,:]
+
+#separamos la columna que contiene las etiquetas y normalizamos el resto de columnas para que queden entre 0 y 1
+X_train = df_train.iloc[:,1:].values /255.
+y_train = df_train[&#39;label&#39;].values
+#La siguiente linea es usada para facilitar el proceso de aprendizaje es crear variables dummies donde cada fila representa el número de la imágen en cuestion
+y_train_onehot = pd.get_dummies(df_train[&#39;label&#39;]).values
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;#preparamos los atos para teste
+df_test = df.iloc[33600:,:]
+X_test = df_test.iloc[:,1:].values / 255.
+y_test = df_test[&#39;label&#39;].values
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;mlp-de-una-capa&#34;&gt;MLP de una capa&lt;/h2&gt;
+&lt;p&gt;Iniciaremos creando una red con una única capa oculta&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# iniciamos los modulos del framework Keras que facilita la creación de modelos 
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+#creamos el modelo, usaremos la clase sequential del paquete Keras para iniciar con un modelo que tendra tantas capas como querramos en sequencia 
+#recordemos que entre mas capas mejor será el rendimiento de la red
+model = Sequential()
+
+#adicionamos la primera capa a nuestro modelo, esta sera la capa que recibirá los parámetros de entrada 
+# la primera aclaración a tener en cuenta es que en las redes MLP a diferencia de las CNN que son mas avanzadas y que se veran en notebooks posteriores
+# las MLP necesitan recibir los parametros en un único vector de entrada, es por eso que cada imágen que es de 28x28 pixeles es convertida a un solo vector
+# de dimension 784 ( 28x28=784), que serán los argumentos de entrada y se tiene 10 unidades de salida por que seran las etiquetas que van del 0 al 9
+model.add(Dense(input_dim=784, units=10))
+#cada capa tiene asociada una función de activación que es la encargada de definir que neurona se activara y pasara a la etapa siguiente como se vio en el notebook anterior
+model.add(Activation(&#39;softmax&#39;))
+# con la primera capa lista solo resta compilar la red, esto es pasar los algoritmos de aprendizaje necesarios para que realice todo el calculo de pesos y pueda aprender 
+# para eso utilizaremos una función de coste muy utilizada en las tareas de clasificación que es la categorical crossentroy (consultar un poco mas sobre las diferentes funciones de coste),
+# y un algoritmos de aprendizaje basado en el gradiente estocastico sgd ( consultar otros optimizadores)
+model.compile(loss=&#39;categorical_crossentropy&#39;, optimizer=&#39;sgd&#39;, metrics=[&#39;accuracy&#39;])
+#finalmente realizmos el entrenamiento de la red, pasando los datos de entranmiento con sus respectivas etiquetas
+model.fit(X_train,y_train_onehot,epochs=10)
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Epoch 1/10
+33600/33600 [==============================] - 1s 44us/step - loss: 0.9546 - accuracy: 0.7783
+Epoch 2/10
+33600/33600 [==============================] - 1s 44us/step - loss: 0.5331 - accuracy: 0.8670
+Epoch 3/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.4580 - accuracy: 0.8807
+Epoch 4/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.4209 - accuracy: 0.8871
+Epoch 5/10
+33600/33600 [==============================] - 2s 48us/step - loss: 0.3974 - accuracy: 0.8917
+Epoch 6/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3812 - accuracy: 0.8959
+Epoch 7/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3687 - accuracy: 0.8988
+Epoch 8/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3590 - accuracy: 0.9007
+Epoch 9/10
+33600/33600 [==============================] - 1s 44us/step - loss: 0.3509 - accuracy: 0.9020
+Epoch 10/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3442 - accuracy: 0.9043
+
+
+
+
+
+&amp;lt;keras.callbacks.callbacks.History at 0x7f2d6eea4a90&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como se puede observar se realizarón 10 iteracion (epocas) sobre los datos y se tuvo una precisión de 90% en entrenamiento bastante aceptable para una sola capa de la red y la perdida (loss) fue disminuyendo lo qu quiere decir que en cada iteracion los pesos de la red se fueron ajustando mejor a las etiquetas&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.predict_classes(X_test)
+print(&amp;quot;\nPrecisión&amp;quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Precisión 0.9067857142857143
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;€xactamente nuestro modelo quedo bien generalizado y los datos que la red no habia visto en entrenamiento ahora estan siendo bien clasificados&lt;/p&gt;
+&lt;p&gt;#MLP con 2 capas
+En esta parte aumentaremos el número de capas ocultas para ver si el rendimiento de la red mejora con respecto al enterior&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# iniciamos los modulos del framework Keras que facilita la creación de modelos 
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+#creamos el modelo, usaremos la clase sequential del paquete Keras para iniciar con un modelo que tendra tantas capas como querramos en sequencia 
+#recordemos que entre mas capas mejor será el rendimiento de la red
+model = Sequential()
+
+#mantenemos la misma estructura anterior, adicionamos la primera capa a nuestro modelo, esta sera la capa que recibirá los parámetros de entrada solo que ahora esta tendra 100 neuronas 
+model.add(Dense(input_dim=784, units=100))
+#adicionamos la segunda capa oculta que tendra el numero de neuornas igual al numero de clases del dataset
+model.add(Dense(units=10))
+model.add(Activation(&#39;softmax&#39;))
+model.compile(loss=&#39;categorical_crossentropy&#39;, optimizer=&#39;sgd&#39;, metrics=[&#39;accuracy&#39;])
+model.fit(X_train,y_train_onehot,epochs=10)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Epoch 1/10
+33600/33600 [==============================] - 2s 70us/step - loss: 0.7145 - accuracy: 0.8166
+Epoch 2/10
+33600/33600 [==============================] - 2s 71us/step - loss: 0.3967 - accuracy: 0.8901
+Epoch 3/10
+33600/33600 [==============================] - 2s 72us/step - loss: 0.3515 - accuracy: 0.9001
+Epoch 4/10
+33600/33600 [==============================] - 2s 68us/step - loss: 0.3297 - accuracy: 0.9065
+Epoch 5/10
+33600/33600 [==============================] - 2s 69us/step - loss: 0.3157 - accuracy: 0.9110
+Epoch 6/10
+33600/33600 [==============================] - 2s 64us/step - loss: 0.3064 - accuracy: 0.9136
+Epoch 7/10
+33600/33600 [==============================] - 2s 68us/step - loss: 0.2993 - accuracy: 0.9155
+Epoch 8/10
+33600/33600 [==============================] - 2s 69us/step - loss: 0.2934 - accuracy: 0.9175
+Epoch 9/10
+33600/33600 [==============================] - 2s 66us/step - loss: 0.2888 - accuracy: 0.9186
+Epoch 10/10
+33600/33600 [==============================] - 2s 63us/step - loss: 0.2849 - accuracy: 0.9195
+
+
+
+
+
+&amp;lt;keras.callbacks.callbacks.History at 0x7f2d761cd748&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como se puede observar el poner una capa oculta mas aumento la precisión  de 90 a 91 en entrenamiento, es importante notar que a diferencia de la anterior red esta ya inicia con una perdida (loss) mucho menor que la anterior&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.predict_classes(X_test)
+print(&amp;quot;\nPrecisión&amp;quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Precisión 0.919047619047619
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;podemos ver que la red esta generalizando bien ya que mantenmos el 91% en teste&lt;/p&gt;
+&lt;h2 id=&#34;mlp-con-3-capas&#34;&gt;MLP con 3 capas&lt;/h2&gt;
+&lt;p&gt;En esta parte aumentaremos el número de capas ocultas para ver si el rendimiento de la red mejora con respecto al enterior. Ahora usaremos 3 capas ocultas, confiando que la precisión del modelo aumente considerablemente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# iniciamos los modulos del framework Keras que facilita la creación de modelos 
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+#creamos el modelo, usaremos la clase sequential del paquete Keras para iniciar con un modelo que tendra tantas capas como querramos en sequencia 
+#recordemos que entre mas capas mejor será el rendimiento de la red
+model = Sequential()
+
+#mantenemos la misma estructura anterior, adicionamos la primera capa a nuestro modelo, esta sera la capa que recibirá los parámetros de entrada solo que ahora esta tendra 100 neuronas 
+model.add(Dense(input_dim=784, units=100))
+#adicionamos la segunda capa oculta que tendra el numero de neuornas que querramos en este caso pasaremos las mismas neuronas de la capa anterior
+model.add(Dense(units=100))
+#adicionamos la tercera capa oculta que tendra el numero de neuornas igual al numero de clases del dataset
+model.add(Dense(units=10))
+model.add(Activation(&#39;softmax&#39;))
+model.compile(loss=&#39;categorical_crossentropy&#39;, optimizer=&#39;sgd&#39;, metrics=[&#39;accuracy&#39;])
+model.fit(X_train,y_train_onehot,epochs=10)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Epoch 1/10
+33600/33600 [==============================] - 3s 76us/step - loss: 0.6296 - accuracy: 0.8293
+Epoch 2/10
+33600/33600 [==============================] - 3s 77us/step - loss: 0.3565 - accuracy: 0.8977
+Epoch 3/10
+33600/33600 [==============================] - 3s 76us/step - loss: 0.3226 - accuracy: 0.9070
+Epoch 4/10
+33600/33600 [==============================] - 2s 68us/step - loss: 0.3065 - accuracy: 0.9122
+Epoch 5/10
+33600/33600 [==============================] - 2s 71us/step - loss: 0.2964 - accuracy: 0.9146
+Epoch 6/10
+33600/33600 [==============================] - 2s 74us/step - loss: 0.2887 - accuracy: 0.9174
+Epoch 7/10
+33600/33600 [==============================] - 2s 73us/step - loss: 0.2828 - accuracy: 0.9194
+Epoch 8/10
+33600/33600 [==============================] - 3s 74us/step - loss: 0.2787 - accuracy: 0.9214
+Epoch 9/10
+33600/33600 [==============================] - 2s 73us/step - loss: 0.2744 - accuracy: 0.9222
+Epoch 10/10
+33600/33600 [==============================] - 3s 75us/step - loss: 0.2711 - accuracy: 0.9227
+
+
+
+
+
+&amp;lt;keras.callbacks.callbacks.History at 0x7f2d6eadaef0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.predict_classes(X_test)
+print(&amp;quot;\nPrecisión&amp;quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Precisión 0.9166666666666666
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso, es interesante observar que no siempre entre incrementar el numero de capas ocultas mejora el resultado de salida, muchas veces para mejorar los resultados es interesante jugar con diferentes convinaciones de hiperparametros como las funciones de coste los optimizadores las tasas de aprendizaje entre otras, sientase libre de modificar los codigos de arriba con diferentes conbinaciones para ver si la precisión mejora.&lt;/p&gt;
+&lt;h2 id=&#34;ejercicio-practico&#34;&gt;Ejercicio practico&lt;/h2&gt;
+&lt;p&gt;Como se pudo observar si se aumenta el número de capas ocultas la red mejora, pero no siempre es lo mejor. Muchas veces jugar con combinaciones de hiperparametros y funciones de activación es la mejor opción. Como fue mencionado anteriormente después de cada capa oculta es necesario usar funciones de activación, y las redes anteriores no seguían este concepto. Investigue cuales son las más usadas en la actualidad y mejore las configuraciones anteriores para obtener mejores resultados. El siguiente es un ejemplo de una red con 3 capas ocultas con la misma estructura anterior pero con un nivel de precisión supremamente mayor que paso de 92 a 98%. Su tarea es jugar con el número de épocas el número de neuronas en cada capa oculta y las funciones de activación para conseguir un resultado similar al siguiente.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# NO DIJITE NADA EN ESTA CELDA NI LA EJECUTE, SI LA EJECUTA PERDERA LOS RESULTADOS DE MUESTRA
+#hiperparametros
+N_EPOCH = .     # numero de iteraciones
+N_CLASSES= .     # numero de etiquetas del conjunto de entrenamiento
+N_HIDDEN = .    # número de neurones ocultos 
+
+
+model = Sequential()
+.
+.
+.
+.
+.
+.
+
+model.compile(optimizer=&#39;.&#39;,loss=&#39;categorical_crossentropy&#39;,metrics=[&#39;accuracy&#39;])
+
+model= model.fit(.,.,epochs=.)
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Epoch 1/30
+33600/33600 [==============================] - 4s 109us/step - loss: 0.8487 - accuracy: 0.7816
+Epoch 2/30
+33600/33600 [==============================] - 4s 108us/step - loss: 0.3551 - accuracy: 0.8997
+Epoch 3/30
+33600/33600 [==============================] - 3s 99us/step - loss: 0.2957 - accuracy: 0.9152
+Epoch 4/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.2611 - accuracy: 0.9243
+Epoch 5/30
+33600/33600 [==============================] - 3s 89us/step - loss: 0.2357 - accuracy: 0.9313
+Epoch 6/30
+33600/33600 [==============================] - 3s 92us/step - loss: 0.2137 - accuracy: 0.9389
+Epoch 7/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.1960 - accuracy: 0.9437
+Epoch 8/30
+33600/33600 [==============================] - 3s 87us/step - loss: 0.1811 - accuracy: 0.9484
+Epoch 9/30
+33600/33600 [==============================] - 3s 91us/step - loss: 0.1675 - accuracy: 0.9513
+Epoch 10/30
+33600/33600 [==============================] - 3s 99us/step - loss: 0.1563 - accuracy: 0.9552
+Epoch 11/30
+33600/33600 [==============================] - 3s 94us/step - loss: 0.1460 - accuracy: 0.9582
+Epoch 12/30
+33600/33600 [==============================] - 3s 101us/step - loss: 0.1368 - accuracy: 0.9613
+Epoch 13/30
+33600/33600 [==============================] - 3s 95us/step - loss: 0.1285 - accuracy: 0.9638
+Epoch 14/30
+33600/33600 [==============================] - 3s 90us/step - loss: 0.1210 - accuracy: 0.9652
+Epoch 15/30
+33600/33600 [==============================] - 3s 96us/step - loss: 0.1136 - accuracy: 0.9682
+Epoch 16/30
+33600/33600 [==============================] - 3s 102us/step - loss: 0.1072 - accuracy: 0.9700
+Epoch 17/30
+33600/33600 [==============================] - 3s 96us/step - loss: 0.1012 - accuracy: 0.9716
+Epoch 18/30
+33600/33600 [==============================] - 3s 95us/step - loss: 0.0958 - accuracy: 0.9738
+Epoch 19/30
+33600/33600 [==============================] - 3s 93us/step - loss: 0.0912 - accuracy: 0.9751
+Epoch 20/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0861 - accuracy: 0.9760
+Epoch 21/30
+33600/33600 [==============================] - 3s 95us/step - loss: 0.0820 - accuracy: 0.9779
+Epoch 22/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0777 - accuracy: 0.9795
+Epoch 23/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0744 - accuracy: 0.9804
+Epoch 24/30
+33600/33600 [==============================] - 3s 93us/step - loss: 0.0705 - accuracy: 0.9812
+Epoch 25/30
+33600/33600 [==============================] - 3s 90us/step - loss: 0.0672 - accuracy: 0.9822
+Epoch 26/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0640 - accuracy: 0.9832
+Epoch 27/30
+33600/33600 [==============================] - 3s 94us/step - loss: 0.0615 - accuracy: 0.9842
+Epoch 28/30
+33600/33600 [==============================] - 3s 99us/step - loss: 0.0584 - accuracy: 0.9850
+Epoch 29/30
+33600/33600 [==============================] - 3s 91us/step - loss: 0.0558 - accuracy: 0.9855
+Epoch 30/30
+33600/33600 [==============================] - 4s 105us/step - loss: 0.0535 - accuracy: 0.9862
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.model.predict_classes(X_test)
+print(&amp;quot;\nPrecisión&amp;quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Precisión 0.9678571428571429
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Acontinuación rellene los espacion donde dice DIGITE AQUI con las configuraciones necesarias para alcanzar un resultado similar al anterior&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#hiperparametros
+N_EPOCH = DIGITE AQUI     # numero de iteraciones
+N_CLASSES= DIGITE AQUI    # numero de etiquetas del conjunto de entrenamiento
+N_HIDDEN = DIGITE AQUI   # número de neurones ocultos 
+
+
+model = Sequential()
+model.add(Dense(input_dim=DIGITE AQUI, units=DIGITE AQUI))
+model.add(DIGITE AQUI)    # esta es la funcion de activacion
+model.add(Dense(units=N_HIDDEN))
+model.add(DIGITE AQUI)    # esta es la funcion de activacion
+model.add(Dense(units=N_CLASSES))
+model.add(Activation(&#39;DIGITE AQUI&#39;))
+
+model.compile(optimizer=&#39;DIGITE AQUI&#39;,loss=&#39;categorical_crossentropy&#39;,metrics=[&#39;accuracy&#39;])
+
+model= model.fit(DIGITE AQUI,DIGITE AQUI,epochs=DIGITE AQUI)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;quiz&#34;&gt;QUIZ&lt;/h2&gt;
+&lt;p&gt;1: En un modelo de redes Neuronales con aprendizaje _________________ la red no es entrenada con pares de conjuntos de entrada y salida deseada.&lt;/p&gt;
+&lt;p&gt;a) supervisionado
+b) no supervisionado&lt;/p&gt;
+&lt;p&gt;2: El perceptron de multiples capas es una red con una capa de entrada que posee tantos nodos de entrada como señales de entrada tenga el problema, una o mas capas ocultas de neuronas y una capa de salida con un numero de neuronas iguales al número de señales de salida.&lt;/p&gt;
+&lt;p&gt;a) verdadero
+b) falso&lt;/p&gt;
+&lt;p&gt;3: Las MLP son generalizaciones de la red perceptron y asi como estas son entrenadas de forma _____________ a través de la regla de aprendizaje que minimiza el error.&lt;/p&gt;
+&lt;p&gt;a) supervisionado
+b) no supervisionado&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Inverse Problems</title>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/inverse/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0100</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/inverse/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/hdspgroup/hdspgroup.github.io/blob/master/data/Deep_Learning_for_inverse_problems.ipynb&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Antes de empezar, da click en el boton &amp;ldquo;Open in Colab&amp;rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/copy_drive.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;De esta manera, este notebook quedará almacenado en Google drive, en la carpeta &lt;em&gt;Colab Notebooks&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
+&lt;h1 id=&#34;hdsp-laboratory-deep-learning-for-inverse-problem&#34;&gt;HDSP Laboratory: Deep Learning for inverse problem&lt;/h1&gt;
+&lt;p&gt;This laboratory is based on the paper &lt;a href=&#34;https://arxiv.org/pdf/2005.06001.pdf&#34;&gt;Deep Learning Techniques
+for Inverse Problems in Imaging&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Before starting, please read the document&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;inverse-problem&#34;&gt;Inverse problem:&lt;/h2&gt;
+&lt;p&gt;It is the task of reconstructing an unknown signal $x$ (image, voice, multidimensional data), from projected observation $y$. This observation can be modeled with a forward model as
+\begin{equation}
+y = A(x) + \epsilon&lt;br&gt;
+\end{equation}
+where $A(\cdot)$ is usually non-invertible and ill-posed. Therefore, a unique solution that fits the observations is difficult or impossible without some prior knowledge about the data.&lt;/p&gt;
+&lt;h3 id=&#34;exercise-1&#34;&gt;Exercise 1:&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Example Inverse problems (Super-resolution)&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;The super-resolution problem is an inverse problem where the measurements $y$ is a downsampling version of an image $x$. This problem can be expressed as a linear system where
+\begin{equation}
+y = Ax&lt;br&gt;
+\end{equation}&lt;/p&gt;
+&lt;p&gt;A visual example of this problem is illustrated as follows.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://revistas.unal.edu.co/index.php/ingeinv/article/viewFile/54267/58903/320116&#34; alt=&#34;image for superresoluton&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Figure 1: (left) Low-resolution images $y$ (right) High resolution images $x$&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Assuming a resolution factor of $4$, i.e., $4\times 4$ pixel in the original images are the average of a pixel in the measurements, read an image a made the decimation matrix $A$ to obtain $y$, using $y=Ax$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;# Read a images (preference a gray-sacle)
+from google.colab import files  
+files.upload()
+
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;import numpy as np
+import cv2 
+import matplotlib.pyplot as plt
+
+img = cv2.imread(&#39;name_image.png&#39;) # we can visualize the image
+plt.imshow(img)
+
+#--- we need to vectorize the image x
+
+#Lines for vectorize the image  
+x = 
+
+# --- We need to build the matrix A  (recomentation: We can use np.kron)
+
+# Lines for bould the linear matrix 
+ A =
+
+# ----- sensing model 
+
+y = np.multiply(A,x)
+
+#-------- reshape y as a matrix
+
+# Lines for reshape y 
+Y_matrix = 
+
+plt.imshow(Y_matrix)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;inverse-problem-examples&#34;&gt;Inverse problem examples&lt;/h1&gt;
+&lt;p&gt;With the growth of available data, deep learning has helped improve the performance of these problems. An example of these is the following.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3i71xaburhd42.cloudfront.net/2e88f6c1e560ff4c2823c9bec5d35b9f963a8b0a/3-Figure1-1.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3i71xaburhd42.cloudfront.net/2e88f6c1e560ff4c2823c9bec5d35b9f963a8b0a/6-Table1-1.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;classification-of-inverse-problem&#34;&gt;classification of Inverse Problem&lt;/h1&gt;
+&lt;p&gt;The majority of the deep inverse problem can be generalices in the following table
+&lt;img src=&#34;https://d3i71xaburhd42.cloudfront.net/2e88f6c1e560ff4c2823c9bec5d35b9f963a8b0a/9-Table2-1.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;forward-model-fully-known-during-training-and-testing&#34;&gt;Forward Model Fully Known During Training and Testing&lt;/h1&gt;
+&lt;p&gt;when the degradation model is known, for example $A$, in the super-resoution model, an initial estimate can be calculated to return to the image dimensions&lt;/p&gt;
+&lt;p&gt;$$\tilde{x}=A^Ty$$&lt;/p&gt;
+&lt;p&gt;and this can be used as input of a model&lt;/p&gt;
+&lt;h3 id=&#34;dowload-the-mnist-dataset&#34;&gt;Dowload the MNIST DATASET&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;import tensorflow as tf
+
+mnist = tf.keras.datasets.mnist
+(x_train, x_labels), (x_test, y_labels) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+11493376/11490434 [==============================] - 0s 0us/step
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Build a decimation matrix with a supe-resolution factor of 2, for the MNIST dataset, i.e., the low-resolution image result of $14\times 14$&lt;/p&gt;
+&lt;p&gt;do the following operations:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;reshape de data&lt;/li&gt;
+&lt;li&gt;y_train = A*x_train&lt;/li&gt;
+&lt;li&gt;x_estimate = A*y_train&lt;/li&gt;
+&lt;li&gt;reshape de x_estimate as a image&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;y_train = 
+x_estimate = 
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;check that spatial dimensions of $x_estimate$ are $28x28$&lt;/li&gt;
+&lt;li&gt;Build a convolutional model, where the input and the output received an image of $28\times 28$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;model = 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now your model must be training using this estimate as input data and the original image as output data.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;model.compile(optimizer=optimizad, loss=&#39;mean_squared_error&#39;,metrics=[&#39;mse&#39;,&#39;mae&#39;])
+      
+history = model.fit(x_estimate, x_train, epochs=100, batch_size=FLAGS.batch_size)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Evaluate your model with x_test data, (Notice that you need to do the same process, i.e, obtain the initialization)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;y_test = 
+x_estimate_test = 
+
+x_reconstructed = model.predict(x_estimate_test)
+
+# calculate error metrics
+MSE = 
+MAE = 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;well-done-you-just-created-your-first-model-to-solve-an-inverse-problem&#34;&gt;well done, you just created your first model to solve an inverse problem&lt;/h1&gt;
+&lt;p&gt;Now you can improve your model using a network with skip connections&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3i71xaburhd42.cloudfront.net/2e88f6c1e560ff4c2823c9bec5d35b9f963a8b0a/10-Figure7-1.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;model = 
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;questions&#34;&gt;Questions&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;What is a inverse problem?&lt;/li&gt;
+&lt;li&gt;What kind of reverse problem was analyzed in the laboratory?&lt;/li&gt;
+&lt;li&gt;Why the need to use Deep learning in this problem?&lt;/li&gt;
+&lt;li&gt;How can you improve the performance of your model?&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

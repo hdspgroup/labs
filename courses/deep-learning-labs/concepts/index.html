@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.71.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Michael Vahn">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Antes de inicar con conceptos básicos sobre redes neuronales tensorflow keras etc, estudiaremos las ideas fundamentales sobre el mundo de la inteligencia artificial.
+La inteligencia artificial se puede definir como la ciencia de entrenar máquinas para ejecutar tareas humanas y machine learning es una parte de la inteligencia artifical encargada de resolver esos problemas.
+Image(&#39;ML.PNG&#39;, width = 800) Machine Learning es un metodo de análisis para la construcción de modelos automatas, que usan diversos algoritmos para aprender iterativamente de un conjunto de datos historicos.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/labs/css/academia.min.4e3b2f408b00c06405993e164c128cb2.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/labs/site.webmanifest">
+  <link rel="icon" type="image/png" href="/labs/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/labs/img/icon-192.png">
+
+  <link rel="canonical" href="https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="HDSP Group">
+  <meta property="og:url" content="https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts/">
+  <meta property="og:title" content="Machine Learning I | HDSP Group">
+  <meta property="og:description" content="Antes de inicar con conceptos básicos sobre redes neuronales tensorflow keras etc, estudiaremos las ideas fundamentales sobre el mundo de la inteligencia artificial.
+La inteligencia artificial se puede definir como la ciencia de entrenar máquinas para ejecutar tareas humanas y machine learning es una parte de la inteligencia artifical encargada de resolver esos problemas.
+Image(&#39;ML.PNG&#39;, width = 800) Machine Learning es un metodo de análisis para la construcción de modelos automatas, que usan diversos algoritmos para aprender iterativamente de un conjunto de datos historicos."><meta property="og:image" content="https://hdspgroup.github.io/labs/img/icon-192.png">
+  <meta property="twitter:image" content="https://hdspgroup.github.io/labs/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-05-05T00:00:00&#43;01:00">
+  
+  <meta property="article:modified_time" content="2020-05-05T00:00:00&#43;01:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Machine Learning I | HDSP Group</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/labs/">HDSP Group</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/labs/courses"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/">Vista General</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/concepts/">Conceptos Base</a>
+    <ul class="nav docs-sidenav">
+      
+      <li class="active">
+        <a href="/labs/courses/deep-learning-labs/concepts/">Machine Learning I</a>
+      </li>
+      
+      <li >
+        <a href="/labs/courses/deep-learning-labs/concepts2/">Machine Learning II</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/colab/">Google Colaboratory</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/labs/courses/deep-learning-labs/colab/">Introducción</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/inverse/">Problemas Inversos</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/labs/courses/deep-learning-labs/inverse/">Inverse Problems</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents"></nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article" itemscope itemtype="http://schema.org/Article">
+
+        <div class="docs-article-container">
+          <h1 itemprop="name">Machine Learning I</h1>
+
+          <div class="article-style" itemprop="articleBody">
+            <p>Antes de inicar con conceptos básicos sobre redes neuronales tensorflow keras etc,  estudiaremos las ideas fundamentales sobre el mundo de la inteligencia artificial.</p>
+<p>La inteligencia artificial se puede definir como la ciencia de entrenar máquinas para ejecutar tareas humanas y machine learning es una parte de la inteligencia artifical encargada de resolver esos problemas.</p>
+<pre><code>Image('ML.PNG', width = 800)
+</code></pre><p><img src="../figs/Machine_learning_I_1_0.png" alt="png"></p>
+<p>Machine Learning es un metodo de análisis para la construcción de modelos automatas, que usan diversos algoritmos para aprender iterativamente de un conjunto de datos historicos.</p>
+<p>Los campos de aplicación de machine learning son muy diversos:</p>
+<ul>
+<li>Detección de fraudes</li>
+<li>Resultados de motores de busqueda</li>
+<li>Análisis de sentimientos</li>
+<li>Detección de objetos</li>
+<li>Reconocimiento de voz</li>
+<li>Realce de imágenes.</li>
+</ul>
+<p>Uno de los sistemas de machine learning que ha revolucionado la industria en los ultimos años son las conocidas <strong>redes neuronales.</strong></p>
+<p>Las redes neuronales son una forma de modelar matematicamente un neuron biológico. Esto es, son arquitecturas inspiradas en el cerebro humano y en su estructura ampliamente paralela, con capacidad de adquirir, almacenar y utilizar conocimiento experimental, generalizando su conocimiento a partir de ejemplos anteriores.</p>
+<p>En 1943 se lanza el primer modelo computacional para una neurona artificial y es llamado de perceptron.</p>
+<p>El perceptron (Figura 1), es la idea mas simple de un neuron artificial y se puede definir como el conjunto de entradas de una muestra <strong>X</strong> las cuales representan los estimulos que la neurona recibe del ambiente y que se combinan con los pesos sinápticos <strong>W</strong> para determinar la entrada del neuron, dicha entrada pasa por una función de activación o umbral que genera una salida <strong>Y</strong> la cual determinará si el neuron se activa siempre y cuando el valor de la combinacion lineal de sus entradas con los pesos supere el umbral de activación.</p>
+<pre><code>Image('perceptron.PNG', width = 800)
+</code></pre><p><img src="../figs/Machine_learning_I_4_0.png" alt="png"></p>
+<p>En un neuron podemos codificar información que nos servira para realizar tareas de calsificación prediccion, etc. Sin embargo la figura de un perceptron matematicamente (antes de la funcion de activación), no es mas que un función que realiza un calculo numérico lineal.
+Internamente la neurona utiliza todos los valores de entrada para realizar una suma ponderada entre los estimulos <strong>X</strong> multiplicados por un valor especifico llamado pesos <strong>W</strong> y que son los parametros y la parte fundamental del proceso de aprendizaje.</p>
+<p>$$Y = x_1w_1 + x_2w_2 + x_3w_3 ..+ ..+ ..+ x_nw_n + b$$</p>
+<p>donde <strong>b</strong> es el termino independiente de la ecuación y es conocido como <strong>bias</strong> el cual tomara el control para mover la recta de la función, y es una conección mas a la entrada de cada neurona.</p>
+<p>Si lo ven el modelo matemático de una neurona no es mas que una funcion lineal</p>
+<p>$$ y = aX +b$$</p>
+<p>Una forma práctica de analizar una neurona artificial es simulando una compuerta <strong>and</strong> donde tenemos dos posibles valores de entrada <strong>x1</strong> ,  <strong>x2</strong>  y cuatro posibles combinaciones de salida <strong>y</strong> que las podemos etiquetar como 0(inactiva) y 1(activa), este nuevo concepto etiqueta es clave en el aprendizaje de máquinas supervisado ya que la neurona aprenderá de los datos históricos o también conocidos como etiquetas ( como se puede ver las etiquetas son los mismos valores de salida).</p>
+<pre><code>Image('tabla.PNG', width = 800)
+</code></pre><p><img src="../figs/Machine_learning_I_6_0.png" alt="png"></p>
+<p>Pero como se sabe el resultado de usar una regresión lineal entre las combinaciones entre x1 y x2 nos da un resultado  numérico continuo  y no un  número binario, para eso se introducen las llamadas funciones de activación, que en la figura 1 son representadas por la ultima caja del modelo y que utilizaran un umbral para decidir si el valor numérico entregado por la suma ponderada supera dicho umbral se entregará como salida un 1 ( neurona activa) caso contrario será entregado un 0 ( neurona no activa).</p>
+<p>una forma mas simple e intuitiva de ver este problema es tratandolo como un problema de clasificación. Esto es encontrar una recta que separe los valores 0 de los valores 1 como se muestra en la siguiente grafica de una compuerta <strong>and</strong>.</p>
+<pre><code>Image('and.PNG', width = 500)
+</code></pre><p><img src="../figs/Machine_learning_I_8_0.png" alt="png"></p>
+<p>La linea azul es la linea de regresión que la neurona aprendio despues de alguna etapas de entrenamiento y consiguio encontrar los mejores valores de <strong>W</strong> para lograr su objetivo ( separar los valores 0 de los valores 1).</p>
+<p>Pero que es el entrenamiento?
+el entrenamiento en modelos de machine learning es la aplicacion de un algoritmo de aprendizje através de iteraciones sobre el conjunto de parametros <strong>W</strong> y <strong>b</strong> con el fin de actualizarlos en cada iteración reduciendo el error y ahciendo que la salida sea lo mas parecida posible a la etiqueta.</p>
+<p>Estos algoritmos de aprendizaje buscan imitar la la forma en que funcionan las neuronas en el cerebro (si generan pulsos electricos que se trasmitan a otras neuronas o no), se utiliza la formula de aprendizaje que se resume en 2 pasos:</p>
+<ul>
+<li>inicialización de pesos con valores pequeños</li>
+<li>Para cada muestra de entrada de X se cacula su respectiva salida Y y se actualizan los pesos W de la siguiente manera:</li>
+</ul>
+<p>$$W_j = W_j + \Delta W_j$$</p>
+<p>donde $\Delta W_j$ es:</p>
+<p>$$\Delta W_j = \eta (Y - \hat {Y}) X_j$$</p>
+<p>donde $Y$ es el valor de la etiqueta original y $\hat {Y}$ es el valor calculado a la salida del perceptron, usando como funcion de activación el escalon unitario.</p>
+<p>#Porque se deben entrenar los modelos de aprendizaje automático?</p>
+<p>A fin de que nuestros algoritmos de aprendizaje automático funcionen de la manera mas adecuada posible (esto es que se ajusten lo mejor posible al problema planteado), se debe llevar a cabo un mapa conceptual de que es lo que se pretende lograr con el modelo y como podemos conseguir que dicho modelo se ajuste a los datos presentados. Esto requiere de mucha practica ya que cada algoritmo lleva caonsigo sus propias caracteristicas y se basa en determinadas suposiciones,  &ldquo;<em>Ningun algoritmo es perfecto todos los modelos estan equivocados pero algunos son utiles. George Eward Pelham</em> &quot;</p>
+<p>A dia de hoy existen, decenas de frameworks y APIs que nos facilitan crear modelos de aprendizaje automático de una forma simple y eficiente. Pero que hay detras de estos modelos? porque se habla de algoritmos y reglas de aprendizaje? y para que sirve esto?. Pues en este apartado encontraras una simple explicación del porque es importante entrenar los modelos de aprendizaje a través de un ejemplo de regresión lineal.</p>
+<p>Todo parte de un conjunto de datos historicos, el machine learning no existiria si no tuvieramos datos con que entrenar nuestros modelos (<em><strong>sem dados no há para isso</strong></em> ==&gt; pequeña muestra de un error en un sistema de reconocimiento en portugues cuando pronuncié <em><strong>sin datos no hay paraiso</strong></em> :-)).</p>
+<p>Como el objetivo es crear un sistema de regresión linela, recurriremos a su formula:<br>
+$$ y=WX+b$$</p>
+<p>donde <strong>W</strong> y <strong>b</strong> como ya sabemos representan los pesos y bias como son llamados en machine learning o como matematicamente se les conoce la pendiente e intersección de la recta respectivamente, <strong>X</strong> representa el conjunto de entrada de nuestros sistemas (nuestros datos historicos) y <strong>y</strong> será el resultado deseado.</p>
+<p>Iniciaremos creando un conjunto de características aleatorias sinteticas que representaran el conjunto de datos de entrada <strong>X</strong>, suponiendo que se trata de una variable de precio de casas en un barrio por ejemplo.</p>
+<pre><code>#importamos las librerias necesarias
+import tensorflow as tf
+
+# generamos valores aleatorios de entrada en fomra de tensores
+Numero_muestras=1000
+X = tf.random.normal(shape=(Numero_muestras,))
+</code></pre><p>Ahora crearemos el modelo de regresión lineal, basado en la formula anterior e inicializando los pesos y el bias con valores aleatorios, esto con el fin de mostrar por que es imoprtante el entrenamiento. Atento que mencione &ldquo;&ldquo;inicializar&rdquo;&quot;, en todo algoritmo de machine learning en su etapa inicial los pesos y bias se inician con valores aleatorios my pequeños preferiblemente diferentes de zero. En este caso a modo de ejemplo asignaremos unos valores constantes de: <strong>W=16.0</strong> y <strong>b=10.0</strong></p>
+<pre><code>class Regresion(object):
+  def __init__(self):
+    self.W = tf.Variable(16.0)  # pesos w inicializado en 16
+    self.b = tf.Variable(10.0) # bias inicializado en 10
+
+  def __call__(self,X):
+    return self.W*X + self.b   # ecuación de la regresión
+</code></pre><p>y como por arte de magia el modelo de regresión lineal esta creado de forma muy simple, donde al llamar el metodo call retornaremos nuestra función de regresión previamente explicada.</p>
+<p>Ahora se creará una instancia del modelo y se hará una predicción</p>
+<pre><code>modelo = Regresion()  # instancia del modelo
+modelo(20).numpy()    # en este caso X es la entrada de la redque conocemos y le damos un valor de 20
+</code></pre><pre><code>330.0
+</code></pre>
+<p>Como se puede ver el resultado de la regresión nos dio un valor de 330.0. Pero será este resultado lo que realmente estabamos buscando?, será que el modelo me predijo correctamente lo que se queria?. una forma de averiguarlo es creando un conjunto de datos historicos sinteticos a los cuales les  llamaremos &ldquo;reales&rdquo;. Recordemos que todo sistema de machine learning funciona con datos historicos.
+Como estamos trabajando con un sistema supervisado, recrearemos unos valores para <strong>W</strong> y <strong>b</strong> ideales para asi poder tener nuestros datos historicos simulados.</p>
+<p>Este es el punto mas importante los datos de <strong>w</strong> y <strong>b</strong> no los conocemos si los supieramos no necesitariamos algoritmos de aprendizaje, es por eso que en este ejemplo los idealizamos como si los supieramos para entender el por que es importante la etapa de entrenamiento.</p>
+<pre><code>#datos ideales
+TRUE_W=3.0
+TRUE_b=0.5
+</code></pre><p>Para tener un conjunto de datos sinteticos mas reales adicionaremos ruido a nuestros conjunto de datos, esto simulara efecto de datos perdidos en el dataset, datos extremos, datos nulos etc.</p>
+<pre><code>noise =tf.random.normal(shape=(Numero_muestras,))
+</code></pre><p>Con lo anterior creamos nuestro conjunto de datos historico simulado</p>
+<pre><code>y=X*TRUE_W+TRUE_b + noise
+</code></pre><p>Ahora si, a lo que vinimos, vamos a crear un grafico donde pondremos los datos historicos reales y los datos que el modelo predice. Lo ideal seria encontrar una linea de regresion que este bien por encima de los datos originales</p>
+<pre><code>import matplotlib.pyplot as plt
+#grafica de los valores historicos reales
+plt.scatter(X,y, label=&quot;valores reales&quot;)
+#grafica de los valores predichos por el modelo
+plt.scatter(X,modelo(X), label = &quot;valores predichos&quot;)
+</code></pre><pre><code>&lt;matplotlib.collections.PathCollection at 0x7f18e6a00a58&gt;
+</code></pre>
+<p><img src="../figs/Machine_learning_I_24_1.png" alt="png"></p>
+<p>los puntos en azul representan los valores reales, la linea de regresion naranja son los predichos por el modelo. Pero por que estan tan lejos una de la otra? esto se debe a que los pesos no se actualizaron.</p>
+<p>Ese es nuestro objetivo actualizar los pesos sucesivamente hasta encontrar los que mejor adapten la linea de regresión a los datos historicos. En este caso nuestro modelo deberiá haber encontrado unos pesos de <strong>W=3.0</strong> y <strong>b=0.5</strong> esto no se consiguio debido al hecho de que en el modelo de regresión creado los valores de <strong>W</strong> y <strong>b</strong> se dejaron fijos en 16.0 y 10.0 respectivamente.</p>
+<p>Es por eso que el entrenamiento de los modelos es de suma importancia en todo algorimto de aprendizaje y conceptos como función de coste, errore medio cuadratico, descenso del gradiente entre otros empiezan a aparecer para facilitar la vida al momento de predecir.</p>
+<p>#Entrenamiento del modelo de regresión</p>
+<pre><code>print('valores reales    ',X[:4].numpy(),'\nValores predichos ',modelo(X)[:4].numpy())
+</code></pre><pre><code>valores reales     [-0.98775786 -0.4940117  -1.1781967  -0.46405175] 
+Valores predichos  [-5.804126   2.0958128 -8.851147   2.575172 ]
+</code></pre>
+<p>Como se puede observar el error entre los valores reales y los valores predichos por el modelo son demasiado grandes es por eso que la grafica a quedado tan separada una de la otra. Con el fin de ajustar los valores y reducir esa discrepancia entre valores reales y predichos, se usan tecnicas que minimicen esos errores y son conocidas como funciones de coste <em>J</em>, que para el caso de la regresión lineal se tiene la del <strong>error minimo cuadrado</strong>:</p>
+<p>$J = (y_{real} - y_{predicho})^{2}$</p>
+<pre><code>def error_medio_cuadratico(y_real,y_predicho):
+  return tf.reduce_mean(tf.square(y_real-y_predicho)) # error
+</code></pre><p>Como la tasa de errores se obtiene haciendo la diferencia de cada valor, se aplica la media de todos los errores de <strong>Y_real</strong> y <strong>Y_predicho</strong> con el objetivo de tener un solo valor que es el que se ira a sumar o restar a los pesos y bias para que estos se actualicen.
+seriá algo asi</p>
+<p>$W (+/-) error   $  y  $ b (+/-) error$</p>
+<p>Pero como saber si se debe sumar o restar el erro a los pesos, es aqui donde entra una de los conceptos mas interesantes del aprendizaje de maquinas que es el calculo de la derivada de la funcion de coste con respecto a los pesos. Uno de los metodos mas usados para realizar esto es la optimización del gradiente descendiente. Con esta técnica conseguimos definir dos cosas</p>
+<ol>
+<li>La direccion del cambio, saber si debo aumentar o disminuir los pesos</li>
+<li>La magnitud del cambio, saber si se disminuye mucho o se aumenta mucho el valor</li>
+</ol>
+<p>El primer item se soluciona con el calculo del gradiente, ya para el segundo es necesario adicionar un parámetro mas a nuestro algoritmmo de aprendizaje que es la tasa de aprendizaje que generalmente esta configurada entre 0 y 1.</p>
+<p>Calcularemos el gradiente con las funciones ofrecidas por tensorflow.</p>
+<pre><code>def entrenamiento(modelo,X,y,tasa_aprendizaje=0.01):
+  with tf.GradientTape() as t:
+    error_actual=error_medio_cuadratico(y ,modelo(X))
+  derivada_W, derivada_b = t.gradient(error_actual,[modelo.W,modelo.b])  
+  modelo.W.assign_sub(tasa_aprendizaje*derivada_W)
+  modelo.b.assign_sub(tasa_aprendizaje*derivada_b)
+</code></pre><p>Ahora con nuestra función de entrenamiento que contiene la actualizacion de pesos podremos mejorar el cálculo de nuestro modelo de regresión, para eso crearemos un loop con un determinado número de iteraciones para que los pesos se actualicen correctamente</p>
+<pre><code># en estas variables guardaremos los valores de los pesos de cada pasada 
+ws,bs = [],[]
+numero_itraciones=10
+for iteracion in range(numero_itraciones):
+  ws.append(modelo.W.numpy())
+  bs.append(modelo.b.numpy())
+
+  error_actual = error_medio_cuadratico(y,modelo(X))
+
+  entrenamiento(modelo,X,y,tasa_aprendizaje=0.1)
+  print(&quot;Iteración {}, perdida {}&quot;.format(iteracion, error_actual.numpy()))
+</code></pre><pre><code>Iteración 0, perdida 255.19960021972656
+Iteración 1, perdida 165.8444366455078
+Iteración 2, perdida 107.90821838378906
+Iteración 3, perdida 70.342041015625
+Iteración 4, perdida 45.98304748535156
+Iteración 5, perdida 30.187406539916992
+Iteración 6, perdida 19.94432830810547
+Iteración 7, perdida 13.301708221435547
+Iteración 8, perdida 8.9938383102417
+Iteración 9, perdida 6.2000041007995605
+</code></pre>
+<p>Como se puede observar la error despues de varias iteraciones disminuye considerablemnte eso quieres decir que la red esta aprendiendo a ajustar los pesos y generalizarlos a los ideales</p>
+<pre><code>import matplotlib.pyplot as plt
+#grafica de los valores historicos reales
+plt.scatter(X,y, label=&quot;valores reales&quot;)
+#grafica de los valores predichos por el modelo
+plt.scatter(X,modelo(X), label = &quot;valores predichos&quot;)
+</code></pre><pre><code>&lt;matplotlib.collections.PathCollection at 0x7f18ddeda3c8&gt;
+</code></pre>
+<p><img src="../figs/Machine_learning_I_35_1.png" alt="png"></p>
+<p>Ahora se puede observar que los puntos de la linea azul se aproximan bastante a la linea originial naranja. es por eso que es importante la etapa de entrenamiento en modelos de machine learning.</p>
+<p>Sin embargo, este es un modelo de regresión para funciones linealmente separables como el caso de la compuerta <strong>and</strong> pero si el problema representa funciones no linealmente separables, sera que un solo perceptron es suficiente para hacer los calculos.</p>
+<p>La respuesta es no, para eso se conectan multiples neurones en multiples capas intercaonectados unos con otros formando lo que conocemos como redes neuronales. Que será explicado en el notebook Machine Learning II</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/labs/courses/deep-learning-labs/colab/" rel="next">Google Colaboratory</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/labs/courses/deep-learning-labs/concepts2/" rel="prev">Machine Learning II</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          Last updated on May 5, 2020
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        <p>
+          
+          Visit the oficial HDSP Group
+          <a href="http://hdspgroup.com/" target="_blank" rel="noopener">site</a>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/Twitter" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="skype:echo123?call"  title="Skype Me"><i class="fab fa-skype" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://keybase.io/" target="_blank" rel="noopener" title="Chat on Keybase"><i class="fab fa-keybase" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://discourse.gohugo.io" target="_blank" rel="noopener" title="Discuss on Forum"><i class="fas fa-comments" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+    <script src="/labs/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/labs/js/academia.min.7276a6a3624de715a5c7f54c7c07696d.js"></script>
+
+    
+
+
+
+
+
+
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.71.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Michael Vahn">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Antes de empezar, da click en el boton &ldquo;Open in Colab&rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:
+De esta manera, este notebook quedará almacenado en Google drive, en la carpeta Colab Notebooks
+Introducción Despúes de conocer como funciona una nuerona artifical, tambien conocida como unidad central de procesamiento, en este notebook estudiaremos las redes neuronales, multilayer perceptron (MLP), que son la conexion de varios neurones artificiales a lo largo diferentes capas, entre mas capas de neurones interconectadas tenga una red mas posibilidades de aprendizaje de caracteristicas mas complejas tendra.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts2/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/labs/css/academia.min.4e3b2f408b00c06405993e164c128cb2.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/labs/site.webmanifest">
+  <link rel="icon" type="image/png" href="/labs/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/labs/img/icon-192.png">
+
+  <link rel="canonical" href="https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts2/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="HDSP Group">
+  <meta property="og:url" content="https://hdspgroup.github.io/labs/courses/deep-learning-labs/concepts2/">
+  <meta property="og:title" content="Machine Learning II | HDSP Group">
+  <meta property="og:description" content="Antes de empezar, da click en el boton &ldquo;Open in Colab&rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:
+De esta manera, este notebook quedará almacenado en Google drive, en la carpeta Colab Notebooks
+Introducción Despúes de conocer como funciona una nuerona artifical, tambien conocida como unidad central de procesamiento, en este notebook estudiaremos las redes neuronales, multilayer perceptron (MLP), que son la conexion de varios neurones artificiales a lo largo diferentes capas, entre mas capas de neurones interconectadas tenga una red mas posibilidades de aprendizaje de caracteristicas mas complejas tendra."><meta property="og:image" content="https://hdspgroup.github.io/labs/img/icon-192.png">
+  <meta property="twitter:image" content="https://hdspgroup.github.io/labs/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-07-20T00:00:00&#43;01:00">
+  
+  <meta property="article:modified_time" content="2020-07-20T00:00:00&#43;01:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Machine Learning II | HDSP Group</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/labs/">HDSP Group</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/labs/courses"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/">Vista General</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/concepts/">Conceptos Base</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/labs/courses/deep-learning-labs/concepts/">Machine Learning I</a>
+      </li>
+      
+      <li class="active">
+        <a href="/labs/courses/deep-learning-labs/concepts2/">Machine Learning II</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/colab/">Google Colaboratory</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/labs/courses/deep-learning-labs/colab/">Introducción</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/labs/courses/deep-learning-labs/inverse/">Problemas Inversos</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/labs/courses/deep-learning-labs/inverse/">Inverse Problems</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introducción">Introducción</a></li>
+    <li><a href="#multilayer-perceptron-para-clacificación-de-dígitos">Multilayer perceptron para clacificación de dígitos.</a></li>
+    <li><a href="#mlp-de-una-capa">MLP de una capa</a></li>
+    <li><a href="#mlp-con-3-capas">MLP con 3 capas</a></li>
+    <li><a href="#ejercicio-practico">Ejercicio practico</a></li>
+    <li><a href="#quiz">QUIZ</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article" itemscope itemtype="http://schema.org/Article">
+
+        <div class="docs-article-container">
+          <h1 itemprop="name">Machine Learning II</h1>
+
+          <div class="article-style" itemprop="articleBody">
+            <p><a href="https://colab.research.google.com/github/hdspgroup/hdspgroup.github.io/blob/master/data/machine_learningII.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<!-- raw HTML omitted -->
+<p>Antes de empezar, da click en el boton &ldquo;Open in Colab&rdquo; de arriba. Esto abrirá este notebook de python directamente en Colab. Luego, para poder editar y ejecutar el código, deberas copiar el notebook en Google drive utilizando el boton:</p>
+<p><img src="https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/copy_drive.png" alt="texto alternativo"></p>
+<p>De esta manera, este notebook quedará almacenado en Google drive, en la carpeta <em>Colab Notebooks</em></p>
+<h2 id="introducción">Introducción</h2>
+<p>Despúes de conocer como funciona una nuerona artifical, tambien conocida como unidad central de procesamiento, en este notebook estudiaremos las redes neuronales, multilayer perceptron (MLP), que son la conexion de varios neurones artificiales a lo largo diferentes capas, entre mas capas de neurones interconectadas tenga una red mas posibilidades de aprendizaje de caracteristicas mas complejas tendra. La siguiente figura muestra una red MLP de 4 capas, una de entrada dos ocultas y una de salida.</p>
+<pre><code>from IPython.display import Image
+Image('MLP.PNG', width=900)
+</code></pre><p><img src="../figs/machine_learningII_1_0.png" alt="png"></p>
+<p>Todo el proceso de aprendizaje ocurre en las capas de neuronas. La primera capa de entrada o también llamada de distribución es solo un nombre figurativo ya que en realidad no posee ningún tipo de neurona, conteniendo apenas un numero de nodos igual al número de señales de entrada de la red, su única función es representar la distribución de los datos de entrada para cada neurona de la capa siguiente.</p>
+<p>A continuación le siguen las capas escondidas que pueden estar representadas por una, muchas o inclusive ninguna capa de neuronas, la función principal de estas neuronas es capacitar a la red para extraer características, además de conseguir representar problemas que no sean linealmente separables como los presentados en el notebook anterior.</p>
+<p>Finalmente contamos con una capa de salida, que contiene necesariamente un numero de neuronas igual al número de señales de la red. Ajustando los valores de los pesos sinápticos, la red puede representar o &ldquo;memorizar&rdquo; las relaciones entre los datos de entrada y los datos de salida, asumiendo así una característica de memoria asociativa. Es así que todo el proceso de aprendizaje ocurre en las capas ocultas o escondidas.</p>
+<p>El proceso de aprendizaje de una red neuronal puede ser de dos formas:</p>
+<ul>
+<li>Aprendizaje supe visionado: el cual requiere de un conjunto de datos previamente etiquetados para llegar a una respuesta adecuada, así el algoritmo extraerá una representación del conocimiento a partir de estos ejemplos. Esto es guiar paso a paso a la red para que aprenda lo que se requiere</li>
+<li>Aprendizaje no sueprvisionado: en este tipo de aprendizaje no se cuenta con datos etiquetados todos se hace por medio de agrupación de patrones para encontrar los que mas se relacionen entre si y conseguir llegar al objetivo.</li>
+</ul>
+<p>En este notebook nos centraremos en la implementación de una red neuronal MLP con aprendizaje supervisionado.</p>
+<h2 id="multilayer-perceptron-para-clacificación-de-dígitos">Multilayer perceptron para clacificación de dígitos.</h2>
+<p>En este ejemplo vamos a utilizar el conjunto de datos MNIST que es un banco de datos de dígitos numéricos escritos a mano, este dataset consta de 60 mil imágenes de entrenamiento y 10 mil imágenes de prueba, para facilitar la etapa de entrenamiento se trabajara con una version reducidad del dataset de 42 mil imagenes en totoal, de las cuales 33600 serán usadas para entrenamiento y el resto para teste. Para conocer un poco más sobre este banco de datos diríjase a la página oficial  <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>. El dataset MNIST utilizado en este laboratorio puede ser descargado del siguiente <a href="https://github.com/hdspgroup/hdspgroup.github.io/raw/master/data/mnist.csv.zip">link</a>.</p>
+<p>El objetivo de este ejemplo es hacer una predicción dado un conjunto de datos, en nuestro caso será pasar a la capa de entrada un conjunto de pixeles que representan los números del 0 al 9 y clasificaremos la salida o el digito que corresponda a esos datos de entrada.</p>
+<pre><code>#importamos las librerias necesarias para trabajar en este ejemplo
+import numpy as np
+import pandas as pd
+from  sklearn.preprocessing import StandardScaler
+</code></pre><pre><code>#marcamos una semilla para reproducir siempre los mismos resultados
+np.random.seed(1337)
+</code></pre><pre><code>#leemos el dataset
+df = pd.read_csv('/content/drive/My Drive/Colab Notebooks/datasets/mnist.csv')
+</code></pre><pre><code># la siguiente es una tabla que contiene el dataset donde cada fila representa una imágen con un determinado número como se puede observar
+#la primera columna son las etiquetas, o sea el número correspondiente a esa determinada imágen
+df.head()
+</code></pre><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>#separamos las imagenes de entrenamiento
+df_train = df.iloc[:33600,:]
+
+#separamos la columna que contiene las etiquetas y normalizamos el resto de columnas para que queden entre 0 y 1
+X_train = df_train.iloc[:,1:].values /255.
+y_train = df_train['label'].values
+#La siguiente linea es usada para facilitar el proceso de aprendizaje es crear variables dummies donde cada fila representa el número de la imágen en cuestion
+y_train_onehot = pd.get_dummies(df_train['label']).values
+</code></pre><pre><code>#preparamos los atos para teste
+df_test = df.iloc[33600:,:]
+X_test = df_test.iloc[:,1:].values / 255.
+y_test = df_test['label'].values
+</code></pre><h2 id="mlp-de-una-capa">MLP de una capa</h2>
+<p>Iniciaremos creando una red con una única capa oculta</p>
+<pre><code># iniciamos los modulos del framework Keras que facilita la creación de modelos 
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+#creamos el modelo, usaremos la clase sequential del paquete Keras para iniciar con un modelo que tendra tantas capas como querramos en sequencia 
+#recordemos que entre mas capas mejor será el rendimiento de la red
+model = Sequential()
+
+#adicionamos la primera capa a nuestro modelo, esta sera la capa que recibirá los parámetros de entrada 
+# la primera aclaración a tener en cuenta es que en las redes MLP a diferencia de las CNN que son mas avanzadas y que se veran en notebooks posteriores
+# las MLP necesitan recibir los parametros en un único vector de entrada, es por eso que cada imágen que es de 28x28 pixeles es convertida a un solo vector
+# de dimension 784 ( 28x28=784), que serán los argumentos de entrada y se tiene 10 unidades de salida por que seran las etiquetas que van del 0 al 9
+model.add(Dense(input_dim=784, units=10))
+#cada capa tiene asociada una función de activación que es la encargada de definir que neurona se activara y pasara a la etapa siguiente como se vio en el notebook anterior
+model.add(Activation('softmax'))
+# con la primera capa lista solo resta compilar la red, esto es pasar los algoritmos de aprendizaje necesarios para que realice todo el calculo de pesos y pueda aprender 
+# para eso utilizaremos una función de coste muy utilizada en las tareas de clasificación que es la categorical crossentroy (consultar un poco mas sobre las diferentes funciones de coste),
+# y un algoritmos de aprendizaje basado en el gradiente estocastico sgd ( consultar otros optimizadores)
+model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+#finalmente realizmos el entrenamiento de la red, pasando los datos de entranmiento con sus respectivas etiquetas
+model.fit(X_train,y_train_onehot,epochs=10)
+
+
+</code></pre><pre><code>Epoch 1/10
+33600/33600 [==============================] - 1s 44us/step - loss: 0.9546 - accuracy: 0.7783
+Epoch 2/10
+33600/33600 [==============================] - 1s 44us/step - loss: 0.5331 - accuracy: 0.8670
+Epoch 3/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.4580 - accuracy: 0.8807
+Epoch 4/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.4209 - accuracy: 0.8871
+Epoch 5/10
+33600/33600 [==============================] - 2s 48us/step - loss: 0.3974 - accuracy: 0.8917
+Epoch 6/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3812 - accuracy: 0.8959
+Epoch 7/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3687 - accuracy: 0.8988
+Epoch 8/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3590 - accuracy: 0.9007
+Epoch 9/10
+33600/33600 [==============================] - 1s 44us/step - loss: 0.3509 - accuracy: 0.9020
+Epoch 10/10
+33600/33600 [==============================] - 1s 43us/step - loss: 0.3442 - accuracy: 0.9043
+
+
+
+
+
+&lt;keras.callbacks.callbacks.History at 0x7f2d6eea4a90&gt;
+</code></pre>
+<p>Como se puede observar se realizarón 10 iteracion (epocas) sobre los datos y se tuvo una precisión de 90% en entrenamiento bastante aceptable para una sola capa de la red y la perdida (loss) fue disminuyendo lo qu quiere decir que en cada iteracion los pesos de la red se fueron ajustando mejor a las etiquetas</p>
+<pre><code>#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.predict_classes(X_test)
+print(&quot;\nPrecisión&quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+</code></pre><pre><code>Precisión 0.9067857142857143
+</code></pre>
+<p>€xactamente nuestro modelo quedo bien generalizado y los datos que la red no habia visto en entrenamiento ahora estan siendo bien clasificados</p>
+<p>#MLP con 2 capas
+En esta parte aumentaremos el número de capas ocultas para ver si el rendimiento de la red mejora con respecto al enterior</p>
+<pre><code># iniciamos los modulos del framework Keras que facilita la creación de modelos 
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+#creamos el modelo, usaremos la clase sequential del paquete Keras para iniciar con un modelo que tendra tantas capas como querramos en sequencia 
+#recordemos que entre mas capas mejor será el rendimiento de la red
+model = Sequential()
+
+#mantenemos la misma estructura anterior, adicionamos la primera capa a nuestro modelo, esta sera la capa que recibirá los parámetros de entrada solo que ahora esta tendra 100 neuronas 
+model.add(Dense(input_dim=784, units=100))
+#adicionamos la segunda capa oculta que tendra el numero de neuornas igual al numero de clases del dataset
+model.add(Dense(units=10))
+model.add(Activation('softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+model.fit(X_train,y_train_onehot,epochs=10)
+</code></pre><pre><code>Epoch 1/10
+33600/33600 [==============================] - 2s 70us/step - loss: 0.7145 - accuracy: 0.8166
+Epoch 2/10
+33600/33600 [==============================] - 2s 71us/step - loss: 0.3967 - accuracy: 0.8901
+Epoch 3/10
+33600/33600 [==============================] - 2s 72us/step - loss: 0.3515 - accuracy: 0.9001
+Epoch 4/10
+33600/33600 [==============================] - 2s 68us/step - loss: 0.3297 - accuracy: 0.9065
+Epoch 5/10
+33600/33600 [==============================] - 2s 69us/step - loss: 0.3157 - accuracy: 0.9110
+Epoch 6/10
+33600/33600 [==============================] - 2s 64us/step - loss: 0.3064 - accuracy: 0.9136
+Epoch 7/10
+33600/33600 [==============================] - 2s 68us/step - loss: 0.2993 - accuracy: 0.9155
+Epoch 8/10
+33600/33600 [==============================] - 2s 69us/step - loss: 0.2934 - accuracy: 0.9175
+Epoch 9/10
+33600/33600 [==============================] - 2s 66us/step - loss: 0.2888 - accuracy: 0.9186
+Epoch 10/10
+33600/33600 [==============================] - 2s 63us/step - loss: 0.2849 - accuracy: 0.9195
+
+
+
+
+
+&lt;keras.callbacks.callbacks.History at 0x7f2d761cd748&gt;
+</code></pre>
+<p>Como se puede observar el poner una capa oculta mas aumento la precisión  de 90 a 91 en entrenamiento, es importante notar que a diferencia de la anterior red esta ya inicia con una perdida (loss) mucho menor que la anterior</p>
+<pre><code>#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.predict_classes(X_test)
+print(&quot;\nPrecisión&quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+</code></pre><pre><code>Precisión 0.919047619047619
+</code></pre>
+<p>podemos ver que la red esta generalizando bien ya que mantenmos el 91% en teste</p>
+<h2 id="mlp-con-3-capas">MLP con 3 capas</h2>
+<p>En esta parte aumentaremos el número de capas ocultas para ver si el rendimiento de la red mejora con respecto al enterior. Ahora usaremos 3 capas ocultas, confiando que la precisión del modelo aumente considerablemente</p>
+<pre><code># iniciamos los modulos del framework Keras que facilita la creación de modelos 
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+#creamos el modelo, usaremos la clase sequential del paquete Keras para iniciar con un modelo que tendra tantas capas como querramos en sequencia 
+#recordemos que entre mas capas mejor será el rendimiento de la red
+model = Sequential()
+
+#mantenemos la misma estructura anterior, adicionamos la primera capa a nuestro modelo, esta sera la capa que recibirá los parámetros de entrada solo que ahora esta tendra 100 neuronas 
+model.add(Dense(input_dim=784, units=100))
+#adicionamos la segunda capa oculta que tendra el numero de neuornas que querramos en este caso pasaremos las mismas neuronas de la capa anterior
+model.add(Dense(units=100))
+#adicionamos la tercera capa oculta que tendra el numero de neuornas igual al numero de clases del dataset
+model.add(Dense(units=10))
+model.add(Activation('softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+model.fit(X_train,y_train_onehot,epochs=10)
+</code></pre><pre><code>Epoch 1/10
+33600/33600 [==============================] - 3s 76us/step - loss: 0.6296 - accuracy: 0.8293
+Epoch 2/10
+33600/33600 [==============================] - 3s 77us/step - loss: 0.3565 - accuracy: 0.8977
+Epoch 3/10
+33600/33600 [==============================] - 3s 76us/step - loss: 0.3226 - accuracy: 0.9070
+Epoch 4/10
+33600/33600 [==============================] - 2s 68us/step - loss: 0.3065 - accuracy: 0.9122
+Epoch 5/10
+33600/33600 [==============================] - 2s 71us/step - loss: 0.2964 - accuracy: 0.9146
+Epoch 6/10
+33600/33600 [==============================] - 2s 74us/step - loss: 0.2887 - accuracy: 0.9174
+Epoch 7/10
+33600/33600 [==============================] - 2s 73us/step - loss: 0.2828 - accuracy: 0.9194
+Epoch 8/10
+33600/33600 [==============================] - 3s 74us/step - loss: 0.2787 - accuracy: 0.9214
+Epoch 9/10
+33600/33600 [==============================] - 2s 73us/step - loss: 0.2744 - accuracy: 0.9222
+Epoch 10/10
+33600/33600 [==============================] - 3s 75us/step - loss: 0.2711 - accuracy: 0.9227
+
+
+
+
+
+&lt;keras.callbacks.callbacks.History at 0x7f2d6eadaef0&gt;
+</code></pre>
+<pre><code>#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.predict_classes(X_test)
+print(&quot;\nPrecisión&quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+</code></pre><pre><code>Precisión 0.9166666666666666
+</code></pre>
+<p>En este caso, es interesante observar que no siempre entre incrementar el numero de capas ocultas mejora el resultado de salida, muchas veces para mejorar los resultados es interesante jugar con diferentes convinaciones de hiperparametros como las funciones de coste los optimizadores las tasas de aprendizaje entre otras, sientase libre de modificar los codigos de arriba con diferentes conbinaciones para ver si la precisión mejora.</p>
+<h2 id="ejercicio-practico">Ejercicio practico</h2>
+<p>Como se pudo observar si se aumenta el número de capas ocultas la red mejora, pero no siempre es lo mejor. Muchas veces jugar con combinaciones de hiperparametros y funciones de activación es la mejor opción. Como fue mencionado anteriormente después de cada capa oculta es necesario usar funciones de activación, y las redes anteriores no seguían este concepto. Investigue cuales son las más usadas en la actualidad y mejore las configuraciones anteriores para obtener mejores resultados. El siguiente es un ejemplo de una red con 3 capas ocultas con la misma estructura anterior pero con un nivel de precisión supremamente mayor que paso de 92 a 98%. Su tarea es jugar con el número de épocas el número de neuronas en cada capa oculta y las funciones de activación para conseguir un resultado similar al siguiente.</p>
+<pre><code># NO DIJITE NADA EN ESTA CELDA NI LA EJECUTE, SI LA EJECUTA PERDERA LOS RESULTADOS DE MUESTRA
+#hiperparametros
+N_EPOCH = .     # numero de iteraciones
+N_CLASSES= .     # numero de etiquetas del conjunto de entrenamiento
+N_HIDDEN = .    # número de neurones ocultos 
+
+
+model = Sequential()
+.
+.
+.
+.
+.
+.
+
+model.compile(optimizer='.',loss='categorical_crossentropy',metrics=['accuracy'])
+
+model= model.fit(.,.,epochs=.)
+</code></pre><pre><code>Epoch 1/30
+33600/33600 [==============================] - 4s 109us/step - loss: 0.8487 - accuracy: 0.7816
+Epoch 2/30
+33600/33600 [==============================] - 4s 108us/step - loss: 0.3551 - accuracy: 0.8997
+Epoch 3/30
+33600/33600 [==============================] - 3s 99us/step - loss: 0.2957 - accuracy: 0.9152
+Epoch 4/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.2611 - accuracy: 0.9243
+Epoch 5/30
+33600/33600 [==============================] - 3s 89us/step - loss: 0.2357 - accuracy: 0.9313
+Epoch 6/30
+33600/33600 [==============================] - 3s 92us/step - loss: 0.2137 - accuracy: 0.9389
+Epoch 7/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.1960 - accuracy: 0.9437
+Epoch 8/30
+33600/33600 [==============================] - 3s 87us/step - loss: 0.1811 - accuracy: 0.9484
+Epoch 9/30
+33600/33600 [==============================] - 3s 91us/step - loss: 0.1675 - accuracy: 0.9513
+Epoch 10/30
+33600/33600 [==============================] - 3s 99us/step - loss: 0.1563 - accuracy: 0.9552
+Epoch 11/30
+33600/33600 [==============================] - 3s 94us/step - loss: 0.1460 - accuracy: 0.9582
+Epoch 12/30
+33600/33600 [==============================] - 3s 101us/step - loss: 0.1368 - accuracy: 0.9613
+Epoch 13/30
+33600/33600 [==============================] - 3s 95us/step - loss: 0.1285 - accuracy: 0.9638
+Epoch 14/30
+33600/33600 [==============================] - 3s 90us/step - loss: 0.1210 - accuracy: 0.9652
+Epoch 15/30
+33600/33600 [==============================] - 3s 96us/step - loss: 0.1136 - accuracy: 0.9682
+Epoch 16/30
+33600/33600 [==============================] - 3s 102us/step - loss: 0.1072 - accuracy: 0.9700
+Epoch 17/30
+33600/33600 [==============================] - 3s 96us/step - loss: 0.1012 - accuracy: 0.9716
+Epoch 18/30
+33600/33600 [==============================] - 3s 95us/step - loss: 0.0958 - accuracy: 0.9738
+Epoch 19/30
+33600/33600 [==============================] - 3s 93us/step - loss: 0.0912 - accuracy: 0.9751
+Epoch 20/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0861 - accuracy: 0.9760
+Epoch 21/30
+33600/33600 [==============================] - 3s 95us/step - loss: 0.0820 - accuracy: 0.9779
+Epoch 22/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0777 - accuracy: 0.9795
+Epoch 23/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0744 - accuracy: 0.9804
+Epoch 24/30
+33600/33600 [==============================] - 3s 93us/step - loss: 0.0705 - accuracy: 0.9812
+Epoch 25/30
+33600/33600 [==============================] - 3s 90us/step - loss: 0.0672 - accuracy: 0.9822
+Epoch 26/30
+33600/33600 [==============================] - 3s 88us/step - loss: 0.0640 - accuracy: 0.9832
+Epoch 27/30
+33600/33600 [==============================] - 3s 94us/step - loss: 0.0615 - accuracy: 0.9842
+Epoch 28/30
+33600/33600 [==============================] - 3s 99us/step - loss: 0.0584 - accuracy: 0.9850
+Epoch 29/30
+33600/33600 [==============================] - 3s 91us/step - loss: 0.0558 - accuracy: 0.9855
+Epoch 30/30
+33600/33600 [==============================] - 4s 105us/step - loss: 0.0535 - accuracy: 0.9862
+</code></pre>
+<pre><code>#vamos a ver como se comporta en teste si es capaz de generalizar lo que aprendio
+y_predict = model.model.predict_classes(X_test)
+print(&quot;\nPrecisión&quot;,np.sum(y_predict == y_test) / float(len(y_test)))
+</code></pre><pre><code>Precisión 0.9678571428571429
+</code></pre>
+<p>Acontinuación rellene los espacion donde dice DIGITE AQUI con las configuraciones necesarias para alcanzar un resultado similar al anterior</p>
+<pre><code>#hiperparametros
+N_EPOCH = DIGITE AQUI     # numero de iteraciones
+N_CLASSES= DIGITE AQUI    # numero de etiquetas del conjunto de entrenamiento
+N_HIDDEN = DIGITE AQUI   # número de neurones ocultos 
+
+
+model = Sequential()
+model.add(Dense(input_dim=DIGITE AQUI, units=DIGITE AQUI))
+model.add(DIGITE AQUI)    # esta es la funcion de activacion
+model.add(Dense(units=N_HIDDEN))
+model.add(DIGITE AQUI)    # esta es la funcion de activacion
+model.add(Dense(units=N_CLASSES))
+model.add(Activation('DIGITE AQUI'))
+
+model.compile(optimizer='DIGITE AQUI',loss='categorical_crossentropy',metrics=['accuracy'])
+
+model= model.fit(DIGITE AQUI,DIGITE AQUI,epochs=DIGITE AQUI)
+</code></pre><h2 id="quiz">QUIZ</h2>
+<p>1: En un modelo de redes Neuronales con aprendizaje _________________ la red no es entrenada con pares de conjuntos de entrada y salida deseada.</p>
+<p>a) supervisionado
+b) no supervisionado</p>
+<p>2: El perceptron de multiples capas es una red con una capa de entrada que posee tantos nodos de entrada como señales de entrada tenga el problema, una o mas capas ocultas de neuronas y una capa de salida con un numero de neuronas iguales al número de señales de salida.</p>
+<p>a) verdadero
+b) falso</p>
+<p>3: Las MLP son generalizaciones de la red perceptron y asi como estas son entrenadas de forma _____________ a través de la regla de aprendizaje que minimiza el error.</p>
+<p>a) supervisionado
+b) no supervisionado</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/labs/courses/deep-learning-labs/concepts/" rel="next">Machine Learning I</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/labs/courses/deep-learning-labs/inverse/" rel="prev">Inverse Problems</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          Last updated on Jul 20, 2020
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        <p>
+          
+          Visit the oficial HDSP Group
+          <a href="http://hdspgroup.com/" target="_blank" rel="noopener">site</a>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/Twitter" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="skype:echo123?call"  title="Skype Me"><i class="fab fa-skype" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://keybase.io/" target="_blank" rel="noopener" title="Chat on Keybase"><i class="fab fa-keybase" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://discourse.gohugo.io" target="_blank" rel="noopener" title="Discuss on Forum"><i class="fas fa-comments" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+    <script src="/labs/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/labs/js/academia.min.7276a6a3624de715a5c7f54c7c07696d.js"></script>
+
+    
+
+
+
+
+
+
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

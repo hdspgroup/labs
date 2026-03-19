@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HDSP Laboratories on HDSP Group</title>
+    <link>https://hdspgroup.github.io/labs/courses/</link>
+    <description>Recent content in HDSP Laboratories on HDSP Group</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://hdspgroup.github.io/labs/courses/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HDSP - Laboratorio de Deep Learning</title>
+      <link>https://hdspgroup.github.io/labs/courses/deep-learning-labs/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/deep-learning-labs/</guid>
+      <description>&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;El objetivo de este laboratorio es brindar al estudiante HDSP las herramientas base
+para el desarrollo de algoritmos de aprendizaje profundo (Deep Learning en inglés) que
+le permitan solucionar distintas tareas de visión por computadora como detección y
+clasificación de objetos, así como tambien resolver problemas inversos como la
+recuperación o reconstrucción de imágenes espectrales comprimidas.
+El laboratorio estará dividio en 4 secciones donde el estudiante deberá
+resolver y/o ejecutar los respectivos ejercicios y responder preguntas o
+analizar los resultados obtenidos al final de cada sección.&lt;/p&gt;
+&lt;h2 id=&#34;desarrollo-de-los-laboratorios&#34;&gt;Desarrollo de los Laboratorios&lt;/h2&gt;
+&lt;p&gt;Todos los laboratorios de Deep Learning serán entregados al estudiante HDSP en
+formato notebook de Python a través de la plataforma de &lt;a href=&#34;https://colab.research.google.com/&#34;&gt;Google Colaboratory&lt;/a&gt;.
+La principal razón para realizar los laboratorios en este formato es que Google Colaboratory,
+o simplemente Colab, permite ejecutar y programar en Python directamente desde el navegador. De esta manera
+se facilita la configuración de un entorno para Deep Learning y el accesso gratuito a GPUs para ejecutar los algoritmos
+desarrollados.&lt;/p&gt;
+&lt;p&gt;Antes de iniciar cada laboratorio, el estudiante debe dar click en el boton
+&lt;a href=&#34;&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;&gt;&lt;/a&gt;
+lo cual abrirá el notebook, correspondiente al laboratorio, directamente en Colab. Luego, para poder editar y ejecutar
+el código, el estudiante debe copiar el notebook en su Google Drive. Para esto, debe tener abierto el notebook en
+Colab y luego dar click en el boton
+&lt;img src=&#34;https://raw.githubusercontent.com/carlosh93/carlosh93.github.io/master/files/notebook_files/copy_drive.png&#34; alt=&#34;texto alternativo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Una vez completado el anterior procedimiento, el estudiante debe seguir la guía proporcionada donde se abordarán
+temas desde un nivel básico hasta un nivel intermedio. Al final de cada guía el estudiante deberá responder preguntas
+y/o resolver ejercicios. Un vez completado los ejercicios, el estudiante deberá compartir el notebook a su tutor y
+preparar un documento donde se resuma lo aprendido y se analicen los resultados obtenidos.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;lecturas-recomendadas&#34;&gt;Lecturas Recomendadas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;pdfs/2005.06001.pdf&#34;&gt;Deep Learning Techniques for Inverse Problems in Imaging.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HDSP - Laboratorio de Óptica Computacional</title>
+      <link>https://hdspgroup.github.io/labs/courses/optics-labs/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/optics-labs/</guid>
+      <description>&lt;h2 id=&#34;objetivos&#34;&gt;Objetivos&lt;/h2&gt;
+&lt;p&gt;En esta serie de laboratorios de óptica computacional tiene como objetivo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dar a conocer al estudiante en periodo de prueba la lı́nea de investigación en “Óptica
+computacional”del grupo de investigación HDSP.&lt;/li&gt;
+&lt;li&gt;Explicar detalladamente los principios y conceptos del área de óptica computacional, conocida
+cientı́ficamente como “Computational Imaging”, su importancia y sus diferentes aplicaciones.&lt;/li&gt;
+&lt;li&gt;Presentar el laboratorio de óptica del grupo HDSP a los estudiantes en periodo de prueba,
+incluyendo ubicación, equipos y elementos ópticos disponibles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;desarrollo-de-los-laboratorios&#34;&gt;Desarrollo de los Laboratorios&lt;/h2&gt;
+&lt;p&gt;A continuación se enumera el plan que debe seguir el estudiante en periodo de prueba. Se recomienda
+seguir las indicaciones descritas en los talleres:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Sesiones&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Video de Clases&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Diapositivas&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Talleres&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Demo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;1. Formación de Imágenes&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1vAVSmy8xud-2LKVhqW-9Fhz7A2mtz3k4/view&#34;&gt;Clase 1.1&lt;/a&gt;, &lt;a href=&#34;https://drive.google.com/file/d/1sowvVapNi6THyhoJG1ForaUEo5yYG1cJ/view&#34;&gt;Clase 1.2&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1JtXnAp9V5PtwbZ-PFz23rxth_gSvnCXh/view&#34;&gt;Diapos 1&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1bu64Wgjz-nbWxfur1wdfawXHiAogrOox/view&#34;&gt;Taller 1&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1kHp5alC0leVry15CzC3TX0Yp4lWYgVvG/view&#34;&gt;Demo 1&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;2. Adquisición de Imágenes&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/12D_2o3bJOGb4l6l1MrylIQySSOOJP0ST/view&#34;&gt;Clase 2.1&lt;/a&gt;, &lt;a href=&#34;https://drive.google.com/file/d/19wuzo0D946HrY_JRLpJIDGST8iCOYMbT/view&#34;&gt;Clase 2.2&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1z-9oeFkvAibn8p8uWN7pn48DCA-AjF_h/view&#34;&gt;Diapos 2&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1laizXp5v9Kkjspj534Zl_teXXXHO5IpI/view&#34;&gt;Taller 2&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1eBH2BjoEJz0EBkJUTlQa6CUgSBqSQqAY/view&#34;&gt;Demo 2&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;3. Imágenes de color&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1IvUgEHHOkIm9qrIaV0YhTGKRuJTj1Yjj/view&#34;&gt;Clase 3.1&lt;/a&gt;, &lt;a href=&#34;https://drive.google.com/file/d/1t3BAW1FNjsKQn112vitLs0k0eD83tRZk/view&#34;&gt;Clase 3.2&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/17EbXHpEW_EM7nuP6CIplVBHuSQJUubuD/view&#34;&gt;Diapos 3&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1MerEqDCSCfR6cNTz73SMJ-5EaDeDKikG/view&#34;&gt;Taller 3&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://drive.google.com/file/d/1E_iGozV2fXm7qLEUPnV1kXq-zd6Px3TV/view&#34;&gt;Demo 3&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;labs_img.png&#34; &gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Descarga esta guía en pdf en este &lt;a href=&#34;Plan_PeriodoPrueba_Optica.pdf&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;lecturas-recomendadas&#34;&gt;Lecturas Recomendadas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;pdfs/111430F.pdf&#34;&gt;SPIE: Teaching of optical imaging and aberrations.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;pdfs/cao2016.pdf&#34;&gt;Computational Snapshot Multispectral Cameras.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HDSP - Laboratorio de Procesamiento de Imágenes</title>
+      <link>https://hdspgroup.github.io/labs/courses/image-processing/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/image-processing/</guid>
+      <description>&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;En esta serie de laboratorios de procesamiento de imágenes, se busca brindar al estudiante HDSP
+los fundamentos base para el procesamiento digital de imágenes. Este laboratorio se encuentra
+dividido en 3 secciones donde el estudiante deberá resolver y/o ejecutar los respectivos
+ejercicios y responder preguntas o analizar los resultados obtenidos al final de cada sección.&lt;/p&gt;
+&lt;h2 id=&#34;desarrollo-de-los-laboratorios&#34;&gt;Desarrollo de los Laboratorios&lt;/h2&gt;
+&lt;p&gt;El aspirante deberá presentar por cada laboratorio un informe en Látex (plantilla disponible en el repositorio).
+Este informe será revisado por el tutor siguiendo la Rúbrica de Evaluación de Informes de Laboratorio
+y una vez aprobado, el tutor cargará el informe y la rúbrica en la carpeta de Drive del aspirante.&lt;/p&gt;
+&lt;h2 id=&#34;lecturas-recomendadas&#34;&gt;Lecturas Recomendadas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://la.mathworks.com/products/image.html&#34;&gt;MATLAB: Image Processing Toolbox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.academia.edu/18324189/Digital_image_processing_using_matlab_gonzalez_&#34;&gt;Digital Image Processing Using MATLAB&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.math.hkbu.edu.hk/~zeng/Teaching/math3615/ls.pdf&#34;&gt;An Introduction to Digital Image Processing with MATLAB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HDSP - Laboratorio de Optimización Matemática</title>
+      <link>https://hdspgroup.github.io/labs/courses/optimization-labs/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hdspgroup.github.io/labs/courses/optimization-labs/</guid>
+      <description>&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;Actualmente, el laboratorio de optimización matemática consta de dos talleres: &lt;em&gt;Proximal Gradient&lt;/em&gt; y &lt;em&gt;Algoritmo de
+Optimización ADMM&lt;/em&gt;. En general, estos laboratorios buscan que el aspirante obtenga un buen dominio de la notación
+de optimización matemática y además le permita desarrollar habilidades para formular e implementar algoritmos
+computacionales para resolver problemas de optimización numérica.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;matlab_convex.png&#34; &gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;proximal-gradient&#34;&gt;Proximal Gradient&lt;/h2&gt;
+&lt;p&gt;Descargue en este &lt;a href=&#34;pdfs/proximal.pdf&#34;&gt;link&lt;/a&gt; el PDF de la Guía de laboratorio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Competencias a evaluar&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;El estudiante domina la notación de la optimización matemática.&lt;/li&gt;
+&lt;li&gt;El estudiante formula un algoritmo siguiendo la estrategia Proximal Gradient para la solución
+de problemas de optimziación.&lt;/li&gt;
+&lt;li&gt;El estudiante programa el algoritmo basado en Proximal Gradient en un lenguaje de programación.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;admm-algorithm&#34;&gt;ADMM Algorithm&lt;/h2&gt;
+&lt;p&gt;Descargue en este &lt;a href=&#34;pdfs/admm.pdf&#34;&gt;link&lt;/a&gt; el PDF de la Guía de laboratorio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Competencias a evaluar&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;El estudiante domina la notación de la optimización matemática.&lt;/li&gt;
+&lt;li&gt;El estudiante formula un algoritmo siguiendo la estrategia ADMM para la solución de problemas de optimziación.&lt;/li&gt;
+&lt;li&gt;El estudiante programa el algoritmo basado en ADMM en un lenguaje de programación.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lecturas-recomendadas&#34;&gt;Lecturas Recomendadas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;pdfs/paper_base1.pdf&#34;&gt;The Proximal Gradient Method.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;pdfs/admm_distr_stats.pdf&#34;&gt;Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
